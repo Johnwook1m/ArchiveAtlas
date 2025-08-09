@@ -12,7 +12,7 @@ const playerNodes = players ? players.map(player => {
     name: player.Profile,
     category: 'player',
     symbolSize: 11,
-    itemStyle: { color: 'rgba(255,255,255,0.3)', borderColor: 'transparent', borderWidth: 0, opacity: 0.6 },
+    itemStyle: { color: 'rgba(255,255,255,1)', borderColor: 'transparent', borderWidth: 0, opacity: 1 },
     emphasis: {
       itemStyle: { color: '#32BEFF', opacity: 1, scale: 1.3 },
       label: {
@@ -213,12 +213,21 @@ function showMainView() {
   }
   
   // 흩뿌려지는 애니메이션을 위한 초기 설정
-  const animatedPlayerNodes = playerNodes.map((node, index) => ({
-    ...node,
-    // 화면 전체에 랜덤하게 배치
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight
-  }));
+  const animatedPlayerNodes = playerNodes.map((node, index) => {
+    return {
+      ...node,
+      // 모든 노드를 흰색으로 유지
+      itemStyle: { 
+        color: 'rgba(255,255,255,1)', 
+        borderColor: 'transparent', 
+        borderWidth: 0, 
+        opacity: 1 
+      },
+      // 화면 전체에 랜덤하게 배치
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight
+    };
+  });
   
   chart.setOption({
     series: [{
