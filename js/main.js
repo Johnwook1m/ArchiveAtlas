@@ -1273,6 +1273,9 @@ function setupSearchFunctionality() {
         if (player) {
           chart.setOption(createPlayerDetailGraph(player));
         }
+      } else if (currentView === 'search') {
+        // 검색 결과 뷰에서는 현재 뷰 유지
+        // 아무것도 하지 않음
       } else {
         // 다른 뷰에서는 메인 뷰로 복귀
         showMainView();
@@ -1355,6 +1358,9 @@ function setupSearchFunctionality() {
         if (player) {
           chart.setOption(createPlayerDetailGraph(player));
         }
+      } else if (currentView === 'search') {
+        // 검색 결과 뷰에서 검색어를 지우면 메인 뷰로 돌아감
+        showMainView();
       } else {
         // 다른 뷰에서는 메인 뷰로 복귀
         showMainView();
@@ -1362,10 +1368,13 @@ function setupSearchFunctionality() {
     }
   });
   
-  // 검색창 외부 클릭 시 축소
+  // 검색창 외부 클릭 시 축소 (검색 결과 뷰에서는 축소하지 않음)
   document.addEventListener('click', function(e) {
     if (isSearchExpanded && !searchWrapper.contains(e.target)) {
-      toggleSearchExpansion();
+      // 검색 결과 뷰에서는 검색창을 축소하지 않음
+      if (currentView !== 'search') {
+        toggleSearchExpansion();
+      }
     }
   });
 }
