@@ -12,7 +12,7 @@ const playerNodes = players ? players.map(player => {
     name: player.Profile,
     category: 'player',
     symbolSize: 11,
-    itemStyle: { color: 'rgba(255,255,255,0.3)', borderColor: 'transparent', borderWidth: 0, opacity: 0.6 },
+    itemStyle: { color: 'rgba(255,255,255,1)', borderColor: 'transparent', borderWidth: 0, opacity: 1 },
     emphasis: {
       itemStyle: { color: '#32BEFF', opacity: 1, scale: 1.3 },
       label: {
@@ -84,7 +84,7 @@ const option = {
   }]
 };
 
-const chart = echarts.init(document.getElementById('main'));
+let chart = echarts.init(document.getElementById('main'));
 
 // 초기 차트 옵션 설정
 chart.setOption(option);
@@ -206,19 +206,37 @@ function showMainView() {
   currentTagValue = null;
   document.body.classList.remove('player-detail-view');
   
-  // List 뷰에서 온 경우 차트를 다시 초기화
+  // List 뷰에서 온 경우 처리
+  const listContainer = document.getElementById('list-container');
+  if (listContainer) {
+    listContainer.remove();
+  }
+  
+  // 차트 컨테이너 다시 표시
   const mainContainer = document.getElementById('main');
-  if (mainContainer.innerHTML.includes('list-view-layout')) {
-    mainContainer.innerHTML = '';
+  mainContainer.style.display = 'block';
+  
+  // 차트 크기 조정 및 렌더링 갱신
+  if (chart) {
+    chart.resize();
   }
   
   // 흩뿌려지는 애니메이션을 위한 초기 설정
-  const animatedPlayerNodes = playerNodes.map((node, index) => ({
-    ...node,
-    // 화면 전체에 랜덤하게 배치
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight
-  }));
+  const animatedPlayerNodes = playerNodes.map((node, index) => {
+    return {
+      ...node,
+      // 모든 노드를 흰색으로 유지
+      itemStyle: { 
+        color: 'rgba(255,255,255,1)', 
+        borderColor: 'transparent', 
+        borderWidth: 0, 
+        opacity: 1 
+      },
+      // 화면 전체에 랜덤하게 배치
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight
+    };
+  });
   
   chart.setOption({
     series: [{
@@ -275,9 +293,11 @@ function showPlayerDetailView(playerName) {
     currentTagValue = null;
     document.body.classList.add('player-detail-view');
     
-    // List 뷰에서 온 경우 차트를 다시 초기화
-    if (mainDiv.innerHTML.includes('list-view-layout')) {
-      mainDiv.innerHTML = '';
+    // List 뷰에서 온 경우 처리
+    const listContainer = document.getElementById('list-container');
+    if (listContainer) {
+      listContainer.remove();
+      mainDiv.style.display = 'block';
     }
     
     // 사이드바 데이터 업데이트 및 표시
@@ -882,9 +902,15 @@ function showListView() {
   currentTagValue = null;
   document.body.classList.remove('player-detail-view');
   
-  // 메인 컨테이너를 새로운 리스트 뷰로 변경
+  // 차트를 숨기기
   const mainContainer = document.getElementById('main');
-  mainContainer.innerHTML = `
+  mainContainer.style.display = 'none';
+  
+  // List 뷰를 위한 컨테이너 생성
+  const listContainer = document.createElement('div');
+  listContainer.id = 'list-container';
+  listContainer.style.cssText = 'flex:1; min-width:0; min-height:0;';
+  listContainer.innerHTML = `
     <div class="list-view-layout">
       <div class="player-list-panel">
         <div class="player-list-container" id="playerListContainer">
@@ -904,6 +930,9 @@ function showListView() {
       </div>
     </div>
   `;
+  
+  // main의 부모 요소에 list container 추가
+  mainContainer.parentNode.appendChild(listContainer);
   
   // 선수 목록을 렌더링
   renderPlayerList();
@@ -937,16 +966,7 @@ function renderPlayerList(filteredPlayers = null) {
     listItem.setAttribute('data-player', player.Profile);
     
     // 선수 상태 결정 (기본적으로 숨김)
-    let statusIndicator = '';
-    if (player['Player Status']) {
-      if (player['Player Status'].includes('CurrentlyPlayingAbroad')) {
-        statusIndicator = '<div class="status-dot status-abroad status-hidden"></div>';
-      } else if (player['Player Status'].includes('CurrentlyPlayingInKorea')) {
-        statusIndicator = '<div class="status-dot status-korea status-hidden"></div>';
-      } else if (player['Player Status'].includes('Retired')) {
-        statusIndicator = '<div class="status-dot status-retired status-hidden"></div>';
-      }
-    }
+    let statusIndicator = '<div class="status-dot status-hidden"></div>';
     
     listItem.innerHTML = `
       ${statusIndicator}
@@ -1244,6 +1264,9 @@ function setupSearchFunctionality() {
         if (player) {
           chart.setOption(createPlayerDetailGraph(player));
         }
+      } else if (currentView === 'search') {
+        // 검색 결과 뷰에서는 현재 뷰 유지
+        // 아무것도 하지 않음
       } else {
         // 다른 뷰에서는 메인 뷰로 복귀
         showMainView();
@@ -1326,6 +1349,9 @@ function setupSearchFunctionality() {
         if (player) {
           chart.setOption(createPlayerDetailGraph(player));
         }
+      } else if (currentView === 'search') {
+        // 검색 결과 뷰에서 검색어를 지우면 메인 뷰로 돌아감
+        showMainView();
       } else {
         // 다른 뷰에서는 메인 뷰로 복귀
         showMainView();
@@ -1333,10 +1359,13 @@ function setupSearchFunctionality() {
     }
   });
   
-  // 검색창 외부 클릭 시 축소
+  // 검색창 외부 클릭 시 축소 (검색 결과 뷰에서는 축소하지 않음)
   document.addEventListener('click', function(e) {
     if (isSearchExpanded && !searchWrapper.contains(e.target)) {
-      toggleSearchExpansion();
+      // 검색 결과 뷰에서는 검색창을 축소하지 않음
+      if (currentView !== 'search') {
+        toggleSearchExpansion();
+      }
     }
   });
 }
