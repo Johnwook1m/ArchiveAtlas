@@ -966,16 +966,7 @@ function renderPlayerList(filteredPlayers = null) {
     listItem.setAttribute('data-player', player.Profile);
     
     // 선수 상태 결정 (기본적으로 숨김)
-    let statusIndicator = '';
-    if (player['Player Status']) {
-      if (player['Player Status'].includes('CurrentlyPlayingAbroad')) {
-        statusIndicator = '<div class="status-dot status-abroad status-hidden"></div>';
-      } else if (player['Player Status'].includes('CurrentlyPlayingInKorea')) {
-        statusIndicator = '<div class="status-dot status-korea status-hidden"></div>';
-      } else if (player['Player Status'].includes('Retired')) {
-        statusIndicator = '<div class="status-dot status-retired status-hidden"></div>';
-      }
-    }
+    let statusIndicator = '<div class="status-dot status-hidden"></div>';
     
     listItem.innerHTML = `
       ${statusIndicator}

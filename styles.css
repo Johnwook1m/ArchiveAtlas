@@ -832,11 +832,12 @@ body.player-detail-view .sidebar-hover-area {
 
 .player-list-container {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
   padding: 24px 0;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 .player-list-item {
@@ -869,6 +870,7 @@ body.player-detail-view .sidebar-hover-area {
   opacity: 1;
   transform: scale(1);
   background: rgba(255, 255, 255, 1) !important;
+  visibility: visible;
 }
 
 /* 호버 시 이미지 패널 애니메이션 */
@@ -949,6 +951,7 @@ body.player-detail-view .sidebar-hover-area {
 .status-hidden {
   opacity: 0;
   transform: scale(0.5);
+  visibility: hidden;
 }
 
 /* 상태별 색상 제거 - 메인뷰 노드와 동일하게 통일 */
