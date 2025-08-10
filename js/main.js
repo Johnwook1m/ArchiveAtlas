@@ -84,7 +84,7 @@ const option = {
   }]
 };
 
-const chart = echarts.init(document.getElementById('main'));
+let chart = echarts.init(document.getElementById('main'));
 
 // 초기 차트 옵션 설정
 chart.setOption(option);
@@ -206,10 +206,19 @@ function showMainView() {
   currentTagValue = null;
   document.body.classList.remove('player-detail-view');
   
-  // List 뷰에서 온 경우 차트를 다시 초기화
+  // List 뷰에서 온 경우 처리
+  const listContainer = document.getElementById('list-container');
+  if (listContainer) {
+    listContainer.remove();
+  }
+  
+  // 차트 컨테이너 다시 표시
   const mainContainer = document.getElementById('main');
-  if (mainContainer.innerHTML.includes('list-view-layout')) {
-    mainContainer.innerHTML = '';
+  mainContainer.style.display = 'block';
+  
+  // 차트 크기 조정 및 렌더링 갱신
+  if (chart) {
+    chart.resize();
   }
   
   // 흩뿌려지는 애니메이션을 위한 초기 설정
@@ -284,9 +293,11 @@ function showPlayerDetailView(playerName) {
     currentTagValue = null;
     document.body.classList.add('player-detail-view');
     
-    // List 뷰에서 온 경우 차트를 다시 초기화
-    if (mainDiv.innerHTML.includes('list-view-layout')) {
-      mainDiv.innerHTML = '';
+    // List 뷰에서 온 경우 처리
+    const listContainer = document.getElementById('list-container');
+    if (listContainer) {
+      listContainer.remove();
+      mainDiv.style.display = 'block';
     }
     
     // 사이드바 데이터 업데이트 및 표시
@@ -891,9 +902,15 @@ function showListView() {
   currentTagValue = null;
   document.body.classList.remove('player-detail-view');
   
-  // 메인 컨테이너를 새로운 리스트 뷰로 변경
+  // 차트를 숨기기
   const mainContainer = document.getElementById('main');
-  mainContainer.innerHTML = `
+  mainContainer.style.display = 'none';
+  
+  // List 뷰를 위한 컨테이너 생성
+  const listContainer = document.createElement('div');
+  listContainer.id = 'list-container';
+  listContainer.style.cssText = 'flex:1; min-width:0; min-height:0;';
+  listContainer.innerHTML = `
     <div class="list-view-layout">
       <div class="player-list-panel">
         <div class="player-list-container" id="playerListContainer">
@@ -913,6 +930,9 @@ function showListView() {
       </div>
     </div>
   `;
+  
+  // main의 부모 요소에 list container 추가
+  mainContainer.parentNode.appendChild(listContainer);
   
   // 선수 목록을 렌더링
   renderPlayerList();
