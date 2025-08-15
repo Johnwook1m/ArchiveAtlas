@@ -11,7 +11,11 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Scouted from Myongji University",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["J1 League (Japan)","Eredivisie (Netherlands)","Premier League (England)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "Eredivisie (Netherlands)",
+      "Premier League (England)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "Retired",
     "Performance": "4x Premier League Winner, 3x League Cup Winner, 1x UCL Winner, 1x CWC Winner",
@@ -28,7 +32,12 @@ const players = [
     "First League": "Belgian First Division (Belgium)",
     "Transfer Reason": "Scouted after Kwangwoon University graduation",
     "Total Overseas Transfers": "6",
-    "Played Leagues": ["Belgian First Division (Belgium)","Premier League (England)","Championship (England)","Saudi Pro League (Saudi Arabia)"],
+    "Played Leagues": [
+      "Belgian First Division (Belgium)",
+      "Premier League (England)",
+      "Championship (England)",
+      "Saudi Pro League (Saudi Arabia)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "2002 WC goal vs Italy, Jupiler Pro League top scorer",
@@ -45,7 +54,10 @@ const players = [
     "First League": "Bundesliga (Germany)",
     "Transfer Reason": "Highly touted prospect",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Bundesliga (Germany)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Bundesliga (Germany)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "0 goals in 30 European apps",
@@ -62,11 +74,18 @@ const players = [
     "First League": "Serie A (Italy)",
     "Transfer Reason": "K-League MVP transfer",
     "Total Overseas Transfers": "6",
-    "Played Leagues": ["Serie A (Italy)","J1 League (Japan)","Ligue 1 (France)","Bundesliga (Germany)","Chinese Super League","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Serie A (Italy)",
+      "J1 League (Japan)",
+      "Ligue 1 (France)",
+      "Bundesliga (Germany)",
+      "Chinese Super League",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "2002 WC golden goal vs Italy, Emperor's Cup winner",
-    "Image": null
+    "Image": "assets/players_image/Ahn Jung-hwan Perugia.jpg"
   },
   {
     "Profile": "Yoon Jung-hwan",
@@ -79,11 +98,14 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Established K-League player",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["J1 League (Japan)","J2 League (Japan)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "J2 League (Japan)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "100+ J-League apps, J2 League promotion",
-    "Image": null
+    "Image": "assets/players_image/Yoon Jung-hwan Cerezo Osaka.jpg"
   },
   {
     "Profile": "Shim Jae-won",
@@ -96,7 +118,10 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "K-League standout",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["J1 League (Japan)","J2 League (Japan)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "J2 League (Japan)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "J.League Cup Winner",
@@ -113,11 +138,15 @@ const players = [
     "First League": "Eredivisie (Netherlands)",
     "Transfer Reason": "2002 World Cup standout",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Eredivisie (Netherlands)","Saudi Pro League (Saudi Arabia)","Chinese Super League (China)"],
+    "Played Leagues": [
+      "Eredivisie (Netherlands)",
+      "Saudi Pro League (Saudi Arabia)",
+      "Chinese Super League (China)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "K League Rookie of the Year, 2002 World Cup 4th place",
-    "Image": null
+    "Image": "assets/players_image/Song Chong-gug Feyenoord.jpg"
   },
   {
     "Profile": "Cha Du-ri",
@@ -130,11 +159,17 @@ const players = [
     "First League": "Bundesliga (Germany)",
     "Transfer Reason": "Son of Cha Bum-kun, strong youth career",
     "Total Overseas Transfers": "8",
-    "Played Leagues": ["Bundesliga (Germany)","2. Bundesliga (Germany)","Scottish Premiership","K League 1 (South Korea)","J1 League (Japan)"],
+    "Played Leagues": [
+      "Bundesliga (Germany)",
+      "2. Bundesliga (Germany)",
+      "Scottish Premiership",
+      "K League 1 (South Korea)",
+      "J1 League (Japan)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "DFB-Pokal Winner, Scottish Cup Winner",
-    "Image": null
+    "Image": "assets/players_image/Cha Du-ri Bayer Leverkusen.jpg"
   },
   {
     "Profile": "Lee Young-pyo",
@@ -147,11 +182,16 @@ const players = [
     "First League": "Eredivisie (Netherlands)",
     "Transfer Reason": "Outstanding defender in K League",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["Eredivisie (Netherlands)","Premier League (England)","K League 1 (South Korea)","J1 League (Japan)"],
+    "Played Leagues": [
+      "Eredivisie (Netherlands)",
+      "Premier League (England)",
+      "K League 1 (South Korea)",
+      "J1 League (Japan)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "Retired",
     "Performance": "Eredivisie Winner, KNVB Cup Winner, League Cup Winner",
-    "Image": null
+    "Image": "assets/players_image/Lee Young-pyo PSV Eindhoven.jpg"
   },
   {
     "Profile": "Lee Chun-soo",
@@ -164,11 +204,16 @@ const players = [
     "First League": "La Liga (Spain)",
     "Transfer Reason": "2002 World Cup star",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["La Liga (Spain)","Eredivisie (Netherlands)","K League 1 (South Korea)","Saudi Pro League (Saudi Arabia)"],
+    "Played Leagues": [
+      "La Liga (Spain)",
+      "Eredivisie (Netherlands)",
+      "K League 1 (South Korea)",
+      "Saudi Pro League (Saudi Arabia)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "K League MVP, AFC Champions League Winner",
-    "Image": null
+    "Image": "assets/players_image/Lee Chun-soo Real Sociedad.jpg"
   },
   {
     "Profile": "Kim Nam-il",
@@ -181,7 +226,13 @@ const players = [
     "First League": "Eredivisie (Netherlands)",
     "Transfer Reason": "Loan from Jeonnam Dragons after 2002 World Cup",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["Eredivisie (Netherlands)","J1 League (Japan)","Russian Premier League","K League 1 (South Korea)","UAE Pro League"],
+    "Played Leagues": [
+      "Eredivisie (Netherlands)",
+      "J1 League (Japan)",
+      "Russian Premier League",
+      "K League 1 (South Korea)",
+      "UAE Pro League"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "AFC Champions League Winner, K League 1 Winner",
@@ -198,11 +249,14 @@ const players = [
     "First League": "Süper Lig (Turkey)",
     "Transfer Reason": "Transfer from Bucheon SK to Trabzonspor",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Süper Lig (Turkey)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Süper Lig (Turkey)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "K League 1 Winner",
-    "Image": null
+    "Image": "assets/players_image/Lee Eul-yong Trabzonspor.jpg"
   },
   {
     "Profile": "Kim Chi-woo",
@@ -215,11 +269,14 @@ const players = [
     "First League": "Serbian SuperLiga (Serbia)",
     "Transfer Reason": "Loan from Incheon United",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Serbian SuperLiga (Serbia)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Serbian SuperLiga (Serbia)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "Retired",
     "Performance": "Serbian SuperLiga Winner, K League 1 Winner",
-    "Image": null
+    "Image": "assets/players_image/Kim Chi-woo Partizan.jpg"
   },
   {
     "Profile": "Lee Ho",
@@ -232,11 +289,17 @@ const players = [
     "First League": "Russian Premier League (Russia)",
     "Transfer Reason": "Transfer from Ulsan Hyundai following coach Dick Advocaat",
     "Total Overseas Transfers": "7",
-    "Played Leagues": ["Russian Premier League (Russia)","K League 1 (South Korea)","UAE Pro League","J1 League (Japan)","Thai League 1"],
+    "Played Leagues": [
+      "Russian Premier League (Russia)",
+      "K League 1 (South Korea)",
+      "UAE Pro League",
+      "J1 League (Japan)",
+      "Thai League 1"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "K League 1 Winner, AFC Champions League Winner",
-    "Image": null
+    "Image": "assets/players_image/Lee Ho Zenit Saint Petersburg.jpg"
   },
   {
     "Profile": "Son Heung-min",
@@ -249,7 +312,10 @@ const players = [
     "First League": "Bundesliga (Germany)",
     "Transfer Reason": "Youth academy promotion and transfer to Europe",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Bundesliga (Germany)","Premier League (England)"],
+    "Played Leagues": [
+      "Bundesliga (Germany)",
+      "Premier League (England)"
+    ],
     "Tier Mobility": "#FlatCareer(1)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "Premier League Top Scorer, Puskás Award Winner, AFC Asian International Player of the Year",
@@ -266,7 +332,13 @@ const players = [
     "First League": "Ligue 1 (France)",
     "Transfer Reason": "Scouted after K League breakout",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["Ligue 1 (France)","Premier League (England)","La Liga (Spain)","EFL Championship (England)","Saudi Pro League (Saudi Arabia)"],
+    "Played Leagues": [
+      "Ligue 1 (France)",
+      "Premier League (England)",
+      "La Liga (Spain)",
+      "EFL Championship (England)",
+      "Saudi Pro League (Saudi Arabia)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "Ligue 1 Player of the Month, Olympic Bronze Medalist",
@@ -283,11 +355,15 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Top scorer in K League",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["J1 League (Japan)","K League 1 (South Korea)","Qatar Stars League (Qatar)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "K League 1 (South Korea)",
+      "Qatar Stars League (Qatar)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "AFC Player of the Year, AFC Champions League Winner",
-    "Image": null
+    "Image": "assets/players_image/Lee Keun-ho Jubilo Iwata.jpg"
   },
   {
     "Profile": "Suk Hyun-jun",
@@ -300,11 +376,19 @@ const players = [
     "First League": "Eredivisie (Netherlands)",
     "Transfer Reason": "Scouted after high school",
     "Total Overseas Transfers": "12",
-    "Played Leagues": ["Eredivisie (Netherlands)","Primeira Liga (Portugal)","Saudi Pro League (Saudi Arabia)","Süper Lig (Turkey)","Nemzeti Bajnokság I (Hungary)","Ligue 1 (France)","Ligue 2 (France)"],
+    "Played Leagues": [
+      "Eredivisie (Netherlands)",
+      "Primeira Liga (Portugal)",
+      "Saudi Pro League (Saudi Arabia)",
+      "Süper Lig (Turkey)",
+      "Nemzeti Bajnokság I (Hungary)",
+      "Ligue 1 (France)",
+      "Ligue 2 (France)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "Portuguese League Top Scorer, Dutch Cup Winner",
-    "Image": null
+    "Image": "assets/players_image/Suk Hyun-jun Ajax.jpg"
   },
   {
     "Profile": "Ki Sung-yueng",
@@ -317,11 +401,16 @@ const players = [
     "First League": "Scottish Premier League (Scotland)",
     "Transfer Reason": "Scouted from FC Seoul",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["Scottish Premier League (Scotland)","Premier League (England)","La Liga (Spain)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Scottish Premier League (Scotland)",
+      "Premier League (England)",
+      "La Liga (Spain)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "EFL Cup Winner, Scottish Premier League Winner, 100+ Premier League apps",
-    "Image": null
+    "Image": "assets/players_image/Ki Sung-yueng Celtic.jpg"
   },
   {
     "Profile": "Lee Chung-yong",
@@ -334,11 +423,16 @@ const players = [
     "First League": "Premier League (England)",
     "Transfer Reason": "Scouted from FC Seoul",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["Premier League (England)","Championship (England)","2. Bundesliga (Germany)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Premier League (England)",
+      "Championship (England)",
+      "2. Bundesliga (Germany)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "Bolton Player of the Year, World Cup goals",
-    "Image": null
+    "Image": "assets/players_image/Lee Chung-yong Bolton Wanderers.jpg"
   },
   {
     "Profile": "Paik Seung-ho",
@@ -351,11 +445,16 @@ const players = [
     "First League": "Segunda División B (Spain)",
     "Transfer Reason": "Youth academy promotion and senior debut",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["Segunda División B (Spain)","Segunda División (Spain)","2. Bundesliga (Germany)","EFL Championship (England)"],
+    "Played Leagues": [
+      "Segunda División B (Spain)",
+      "Segunda División (Spain)",
+      "2. Bundesliga (Germany)",
+      "EFL Championship (England)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "K League 1 Winner, Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Paik Seung-ho FC Barcelona B.jpg"
   },
   {
     "Profile": "Kim Young-gwon",
@@ -368,11 +467,15 @@ const players = [
     "First League": "Chinese Super League (China)",
     "Transfer Reason": "Transfer to gain more playing time",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Chinese Super League (China)","J1 League (Japan)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Chinese Super League (China)",
+      "J1 League (Japan)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "AFC Champions League Winner, K League 1 Winner",
-    "Image": null
+    "Image": "assets/players_image/Kim Young-gwon Guangzhou Evergrande.jpg"
   },
   {
     "Profile": "Kim Bo-kyung",
@@ -385,11 +488,17 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Loan for more playing time",
     "Total Overseas Transfers": "6",
-    "Played Leagues": ["J1 League (Japan)","J2 League (Japan)","English Championship (England)","K League 1 (South Korea)","Saudi Pro League (Saudi Arabia)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "J2 League (Japan)",
+      "English Championship (England)",
+      "K League 1 (South Korea)",
+      "Saudi Pro League (Saudi Arabia)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "K League 1 MVP, AFC Champions League Winner",
-    "Image": null
+    "Image": "assets/players_image/Kim Bo-kyung Cerezo Osaka.jpg"
   },
   {
     "Profile": "Lee Kang-in",
@@ -402,11 +511,14 @@ const players = [
     "First League": "La Liga (Spain)",
     "Transfer Reason": "Youth academy promotion",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["La Liga (Spain)","Ligue 1 (France)"],
+    "Played Leagues": [
+      "La Liga (Spain)",
+      "Ligue 1 (France)"
+    ],
     "Tier Mobility": "#FlatCareer(1)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "Copa del Rey Winner, FIFA U-20 World Cup Golden Ball",
-    "Image": null
+    "Image": "assets/players_image/Lee Kang-in Valencia.jpg"
   },
   {
     "Profile": "Park Joo-ho",
@@ -419,11 +531,15 @@ const players = [
     "First League": "Swiss Super League (Switzerland)",
     "Transfer Reason": "Transfer to European football",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["Swiss Super League (Switzerland)","Bundesliga (Germany)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Swiss Super League (Switzerland)",
+      "Bundesliga (Germany)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "Swiss Super League Winner, Bundesliga appearances",
-    "Image": null
+    "Image": "assets/players_image/Park Joo-ho FC Basel.jpg"
   },
   {
     "Profile": "Lee Seung-woo",
@@ -436,11 +552,17 @@ const players = [
     "First League": "Segunda División B (Spain)",
     "Transfer Reason": "Youth academy promotion and loan",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["Segunda División B (Spain)","Serie A (Italy)","Belgian Pro League (Belgium)","Primeira Liga (Portugal)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Segunda División B (Spain)",
+      "Serie A (Italy)",
+      "Belgian Pro League (Belgium)",
+      "Primeira Liga (Portugal)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "FIFA U-20 World Cup Golden Ball",
-    "Image": null
+    "Image": "assets/players_image/Lee Seung-woo FC Barcelona B.jpg"
   },
   {
     "Profile": "Ji Dong-won",
@@ -453,11 +575,17 @@ const players = [
     "First League": "Premier League (England)",
     "Transfer Reason": "Loan and transfers in Europe",
     "Total Overseas Transfers": "7",
-    "Played Leagues": ["Premier League (England)","Bundesliga (Germany)","2. Bundesliga (Germany)","K League 1 (South Korea)","EFL Championship (England)"],
+    "Played Leagues": [
+      "Premier League (England)",
+      "Bundesliga (Germany)",
+      "2. Bundesliga (Germany)",
+      "K League 1 (South Korea)",
+      "EFL Championship (England)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "Olympic Bronze Medalist",
-    "Image": null
+    "Image": "assets/players_image/Ji Dong-won Sunderland.jpg"
   },
   {
     "Profile": "Koo Ja-cheol",
@@ -470,11 +598,15 @@ const players = [
     "First League": "Bundesliga (Germany)",
     "Transfer Reason": "Multiple stints at Augsburg and Mainz",
     "Total Overseas Transfers": "6",
-    "Played Leagues": ["Bundesliga (Germany)","K League 1 (South Korea)","Qatar Stars League (Qatar)"],
+    "Played Leagues": [
+      "Bundesliga (Germany)",
+      "K League 1 (South Korea)",
+      "Qatar Stars League (Qatar)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "DFB-Pokal Winner",
-    "Image": null
+    "Image": "assets/players_image/Koo Ja-cheol FC Augsburg.jpg"
   },
   {
     "Profile": "Kim Jin-su",
@@ -487,11 +619,15 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Loan and transfers in Japan and Europe",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["J1 League (Japan)","K League 1 (South Korea)","Saudi Pro League (Saudi Arabia)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "K League 1 (South Korea)",
+      "Saudi Pro League (Saudi Arabia)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "K League 1 Winner, AFC Champions League Winner",
-    "Image": null
+    "Image": "assets/players_image/Kim Jin-su Albirex Niigata.jpg"
   },
   {
     "Profile": "Kim Kee-hee",
@@ -504,7 +640,11 @@ const players = [
     "First League": "UAE Pro League (UAE)",
     "Transfer Reason": "Loan move from K League",
     "Total Overseas Transfers": "6",
-    "Played Leagues": ["K League 1 (South Korea)","MLS (USA)","Chinese Super League (China)"],
+    "Played Leagues": [
+      "K League 1 (South Korea)",
+      "MLS (USA)",
+      "Chinese Super League (China)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "MLS Cup Winner, K League 1 Winner",
@@ -521,11 +661,15 @@ const players = [
     "First League": "Allsvenskan (Sweden)",
     "Transfer Reason": "Youth academy promotion and professional debut in Sweden",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Allsvenskan (Sweden)","Djurgårdens IF (Sweden)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Allsvenskan (Sweden)",
+      "Djurgårdens IF (Sweden)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "K League Top Assistor, Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Moon Seon-min Östersunds FK.jpg"
   },
   {
     "Profile": "Hong Jeong-ho",
@@ -538,11 +682,15 @@ const players = [
     "First League": "Bundesliga (Germany)",
     "Transfer Reason": "Transfer from Jeju United",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Bundesliga (Germany)","Chinese Super League (China)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Bundesliga (Germany)",
+      "Chinese Super League (China)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "K League 1 Runners up 2010, AFC Champions League Dream Team 2015",
-    "Image": null
+    "Image": "assets/players_image/Hong Jeong-ho FC Augsburg.jpg"
   },
   {
     "Profile": "Lee Myung-jae",
@@ -555,11 +703,15 @@ const players = [
     "First League": "EFL League One (England)",
     "Transfer Reason": "First move to Europe",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["K League 1 (South Korea)","J1 League (Japan)","English League One (England)"],
+    "Played Leagues": [
+      "K League 1 (South Korea)",
+      "J1 League (Japan)",
+      "English League One (England)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "K League 1 Champion 2024",
-    "Image": null
+    "Image": "assets/players_image/Lee Myung-jae Birmingham City.jpg"
   },
   {
     "Profile": "Hwang Hee-chan",
@@ -572,11 +724,15 @@ const players = [
     "First League": "Austrian Bundesliga (Austria)",
     "Transfer Reason": "Youth academy promotion",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Austrian Bundesliga (Austria)","Bundesliga (Germany)","Premier League (England)"],
+    "Played Leagues": [
+      "Austrian Bundesliga (Austria)",
+      "Bundesliga (Germany)",
+      "Premier League (England)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "Premier League Top Scorer contender, AFC Asian Cup semi-finalist",
-    "Image": null
+    "Image": "assets/players_image/Hwang Hee-chan Red Bull Salzburg.jpg"
   },
   {
     "Profile": "Park In-hyeok",
@@ -589,11 +745,15 @@ const players = [
     "First League": "Bundesliga (Germany)",
     "Transfer Reason": "Scouted after youth success",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Bundesliga (Germany)","2. Bundesliga (Germany)","Slovenian PrvaLiga (Slovenia)"],
+    "Played Leagues": [
+      "Bundesliga (Germany)",
+      "2. Bundesliga (Germany)",
+      "Slovenian PrvaLiga (Slovenia)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "Loan spells in Germany and Slovenia",
-    "Image": null
+    "Image": "assets/players_image/Park In-hyeok TSG 1899 Hoffenheim.jpg"
   },
   {
     "Profile": "Kwon Kyung-won",
@@ -606,11 +766,16 @@ const players = [
     "First League": "Chinese Super League (China)",
     "Transfer Reason": "Transfer from Jeonbuk Hyundai Motors",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["Chinese Super League (China)","UAE Pro League (UAE)","J1 League (Japan)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Chinese Super League (China)",
+      "UAE Pro League (UAE)",
+      "J1 League (Japan)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "K League 1 Champion, AFC Champions League Winner",
-    "Image": null
+    "Image": "assets/players_image/Kwon Kyung-won Tianjin Quanjian.jpg"
   },
   {
     "Profile": "Kim Seung-gyu",
@@ -623,11 +788,15 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Seeking playing time",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["J1 League (Japan)","K League 1 (South Korea)","Saudi Pro League (Saudi Arabia)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "K League 1 (South Korea)",
+      "Saudi Pro League (Saudi Arabia)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "J1 League Best XI, AFC Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Kim Seung-gyu Vissel Kobe.jpg"
   },
   {
     "Profile": "Jung Sung-ryong",
@@ -640,11 +809,13 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Transfer from Suwon Samsung Bluewings",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["J1 League (Japan)"],
+    "Played Leagues": [
+      "J1 League (Japan)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "4x J1 League Winner, 2x Emperor's Cup Winner",
-    "Image": null
+    "Image": "assets/players_image/Jung Sung-ryong Kawasaki Frontale.jpg"
   },
   {
     "Profile": "Lee Beom-young",
@@ -657,7 +828,9 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Transfer from Busan IPark",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["J1 League (Japan)"],
+    "Played Leagues": [
+      "J1 League (Japan)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "2012 Olympic Bronze Medalist, K League All-Star",
@@ -674,11 +847,15 @@ const players = [
     "First League": "Ligue 1 (France)",
     "Transfer Reason": "Transfer from Suwon Samsung Bluewings",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Ligue 1 (France)","Bundesliga (Germany)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Ligue 1 (France)",
+      "Bundesliga (Germany)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "AFC Champions League Winner, K League 1 Best XI",
-    "Image": null
+    "Image": "assets/players_image/Kwon Chang-hoon Dijon FCO.jpg"
   },
   {
     "Profile": "Jung Seung-hyun",
@@ -691,11 +868,15 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Transfer from Ulsan Hyundai",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["J1 League (Japan)","K League 1 (South Korea)","UAE Pro League (UAE)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "K League 1 (South Korea)",
+      "UAE Pro League (UAE)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "2x AFC Champions League Winner, K League 1 Champion",
-    "Image": null
+    "Image": "assets/players_image/Jung Seung-hyun Sagan Tosu.jpg"
   },
   {
     "Profile": "Lee Jin-hyun",
@@ -708,11 +889,14 @@ const players = [
     "First League": "Austrian Bundesliga (Austria)",
     "Transfer Reason": "Loan from Pohang Steelers",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Austrian Bundesliga (Austria)","Ekstraklasa (Poland)"],
+    "Played Leagues": [
+      "Austrian Bundesliga (Austria)",
+      "Ekstraklasa (Poland)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "2018 Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Lee Jin-hyun Austria Wien.jpg"
   },
   {
     "Profile": "Hwang Ui-jo",
@@ -725,11 +909,16 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Transfer from Seongnam FC",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["J1 League (Japan)","Ligue 1 (France)","Super League Greece (Greece)","Premier League (England)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "Ligue 1 (France)",
+      "Super League Greece (Greece)",
+      "Premier League (England)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "Ligue 1 Player of the Month, 2018 Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Hwang Ui-jo Gamba Osaka.jpg"
   },
   {
     "Profile": "Jung Woo-young",
@@ -742,11 +931,18 @@ const players = [
     "First League": "J2 League (Japan)",
     "Transfer Reason": "Youth academy promotion and professional debut in Japan",
     "Total Overseas Transfers": "6",
-    "Played Leagues": ["J2 League (Japan)","J1 League (Japan)","Chinese Super League (China)","Qatar Stars League (Qatar)","Saudi Pro League (Saudi Arabia)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "J2 League (Japan)",
+      "J1 League (Japan)",
+      "Chinese Super League (China)",
+      "Qatar Stars League (Qatar)",
+      "Saudi Pro League (Saudi Arabia)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2012 Olympic Bronze Medalist, Qatar Stars League Winner (2018, 2021, 2022)",
-    "Image": null
+    "Image": "assets/players_image/Jung Woo-young Kyoto Sanga.jpg"
   },
   {
     "Profile": "Lee Jae-sung",
@@ -759,11 +955,14 @@ const players = [
     "First League": "Thai League 1 (Thailand)",
     "Transfer Reason": "Transfer to Thailand",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Thai League 1 (Thailand)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Thai League 1 (Thailand)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "AFC Champions League Winner (2016)",
-    "Image": null
+    "Image": "assets/players_image/Lee Jae-sung Ratchaburi Mitr Phol.jpg"
   },
   {
     "Profile": "Kim Jung-min",
@@ -776,11 +975,15 @@ const players = [
     "First League": "Primeira Liga (Portugal)",
     "Transfer Reason": "Loan and transfer from Red Bull Salzburg",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["Primeira Liga (Portugal)","Segunda Liga (Portugal)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Primeira Liga (Portugal)",
+      "Segunda Liga (Portugal)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2018 Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Kim Jung-min Vitória de Guimarães.jpg"
   },
   {
     "Profile": "Kim Min-jae",
@@ -793,11 +996,16 @@ const players = [
     "First League": "Chinese Super League (China)",
     "Transfer Reason": "Transfer from Jeonbuk Hyundai Motors",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["Chinese Super League (China)","Süper Lig (Turkey)","Serie A (Italy)","Bundesliga (Germany)"],
+    "Played Leagues": [
+      "Chinese Super League (China)",
+      "Süper Lig (Turkey)",
+      "Serie A (Italy)",
+      "Bundesliga (Germany)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2022-23 Serie A Winner, 2023 Bundesliga Winner",
-    "Image": null
+    "Image": "assets/players_image/Kim Min-jae Beijing Guoan.jpeg"
   },
   {
     "Profile": "Hwang In-beom",
@@ -810,11 +1018,17 @@ const players = [
     "First League": "MLS (USA)",
     "Transfer Reason": "Transfer to MLS",
     "Total Overseas Transfers": "6",
-    "Played Leagues": ["MLS (USA)","Russian Premier League","K League 1 (South Korea)","Super League Greece","Eredivisie (Netherlands)"],
+    "Played Leagues": [
+      "MLS (USA)",
+      "Russian Premier League",
+      "K League 1 (South Korea)",
+      "Super League Greece",
+      "Eredivisie (Netherlands)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2018 Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Hwang In-beom Vancouver Whitecaps FC.jpg"
   },
   {
     "Profile": "Park Kyu-hyun",
@@ -827,11 +1041,15 @@ const players = [
     "First League": "Regionalliga (Germany)",
     "Transfer Reason": "Loan and youth development",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Regionalliga (Germany)","2. Bundesliga (Germany)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Regionalliga (Germany)",
+      "2. Bundesliga (Germany)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2023 Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Park Kyu-hyun Werder Bremen II.jpg"
   },
   {
     "Profile": "Chun Seong-hoon",
@@ -844,10 +1062,14 @@ const players = [
     "First League": "Regionalliga Bayern (Germany)",
     "Transfer Reason": "Youth transfer from Incheon United",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Regionalliga Bayern (Germany)","3. Liga (Germany)"],
+    "Played Leagues": [
+      "Regionalliga Bayern (Germany)",
+      "3. Liga (Germany)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Chun Seong-hoon FC Augsburg II.jpg"
   },
   {
     "Profile": "Kim Hyun-woo",
@@ -860,10 +1082,15 @@ const players = [
     "First League": "2. HNL (Croatia)",
     "Transfer Reason": "Loan and permanent move from Ulsan Hyundai",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["2. HNL (Croatia)","1. HNL (Croatia)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "2. HNL (Croatia)",
+      "1. HNL (Croatia)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Kim Hyun-woo Dinamo Zagreb II.jpg"
   },
   {
     "Profile": "Hong Hyun-seok",
@@ -876,10 +1103,16 @@ const players = [
     "First League": "3. Liga (Germany)",
     "Transfer Reason": "Loan from Ulsan Hyundai",
     "Total Overseas Transfers": "5",
-    "Played Leagues": ["3. Liga (Germany)","Austrian Bundesliga","Belgian Pro League","Bundesliga (Germany)"],
+    "Played Leagues": [
+      "3. Liga (Germany)",
+      "Austrian Bundesliga",
+      "Belgian Pro League",
+      "Bundesliga (Germany)"
+    ],
     "Tier Mobility": null,
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Hong Hyun-seok SpVgg Unterhaching.jpg"
   },
   {
     "Profile": "Kim Moon-hwan",
@@ -892,10 +1125,15 @@ const players = [
     "First League": "MLS (USA)",
     "Transfer Reason": "Transfer from Busan IPark",
     "Total Overseas Transfers": "4",
-    "Played Leagues": ["MLS (USA)","K League 1 (South Korea)","Qatar Stars League"],
+    "Played Leagues": [
+      "MLS (USA)",
+      "K League 1 (South Korea)",
+      "Qatar Stars League"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Kim Moon-hwan Los Angeles FC.jpg"
   },
   {
     "Profile": "Kim Geon-hee",
@@ -908,10 +1146,14 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Transfer from Suwon Samsung Bluewings",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["J1 League (Japan)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "J1 League (Japan)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Kim Geon-hee Hokkaido Consadole Sapporo.jpg"
   },
   {
     "Profile": "Jeong Sang-bin",
@@ -924,10 +1166,15 @@ const players = [
     "First League": "Premier League (England)",
     "Transfer Reason": "Transfer from Suwon Samsung Bluewings",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Premier League (England)","Swiss Super League","Major League Soccer (USA)"],
+    "Played Leagues": [
+      "Premier League (England)",
+      "Swiss Super League",
+      "Major League Soccer (USA)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Jeong Sang-bin Wolverhampton Wanderers.jpg"
   },
   {
     "Profile": "Lee Dong-jun",
@@ -940,10 +1187,14 @@ const players = [
     "First League": "Bundesliga (Germany)",
     "Transfer Reason": "Transfer from Busan IPark",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Bundesliga (Germany)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Bundesliga (Germany)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Lee Dong-jun Hertha BSC.jpg"
   },
   {
     "Profile": "Lee Dong-gyeong",
@@ -956,10 +1207,14 @@ const players = [
     "First League": "Bundesliga (Germany)",
     "Transfer Reason": "Loan from Ulsan Hyundai",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Bundesliga (Germany)","K League 1 (South Korea)"],
+    "Played Leagues": [
+      "Bundesliga (Germany)",
+      "K League 1 (South Korea)"
+    ],
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Lee Dong-gyeong Schalke 04.jpg"
   },
   {
     "Profile": "Kim Ji-soo",
@@ -972,10 +1227,13 @@ const players = [
     "First League": "Premier League (England)",
     "Transfer Reason": "Transfer from Seongnam FC",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["Premier League (England)"],
+    "Played Leagues": [
+      "Premier League (England)"
+    ],
     "Tier Mobility": "#FlatCareer(1)",
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Kim Ji-soo Brentford.jpg"
   },
   {
     "Profile": "Kim Yong-hak",
@@ -988,11 +1246,13 @@ const players = [
     "First League": "Primeira Liga (Portugal)",
     "Transfer Reason": "Transfer from Pohang Steelers",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["Primeira Liga (Portugal)"],
+    "Played Leagues": [
+      "Primeira Liga (Portugal)"
+    ],
     "Tier Mobility": "#FlatCareer(2)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2022 AFC U-23 Asian Cup Runner-up",
-    "Image": null
+    "Image": "assets/players_image/Kim Yong-hak Portimonense.jpg"
   },
   {
     "Profile": "Oh Hyeon-gyu",
@@ -1005,11 +1265,14 @@ const players = [
     "First League": "Scottish Premiership (Scotland)",
     "Transfer Reason": "Transfer from Suwon Samsung Bluewings",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Scottish Premiership (Scotland)","Belgian Pro League (Belgium)"],
+    "Played Leagues": [
+      "Scottish Premiership (Scotland)",
+      "Belgian Pro League (Belgium)"
+    ],
     "Tier Mobility": "#FlatCareer(2)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2022-23 Scottish Premiership Winner, 2022-23 Scottish Cup Winner, 2022-23 Scottish League Cup Winner, 2024-25 Belgian Pro League Winner",
-    "Image": null
+    "Image": "assets/players_image/Oh Hyeon-gyu Celtic.jpg"
   },
   {
     "Profile": "Cho Gue-sung",
@@ -1022,11 +1285,13 @@ const players = [
     "First League": "Superligaen (Denmark)",
     "Transfer Reason": "Transfer from Jeonbuk Hyundai Motors",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["Superligaen (Denmark)"],
+    "Played Leagues": [
+      "Superligaen (Denmark)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2022 K League 1 Top Scorer, 2022 K League 1 Best XI, 2023-24 Danish Superliga Player of the Month",
-    "Image": null
+    "Image": "assets/players_image/Cho Gue-sung FC Midtjylland.jpg"
   },
   {
     "Profile": "Yang Min-hyuk",
@@ -1039,10 +1304,14 @@ const players = [
     "First League": "Premier League (England)",
     "Transfer Reason": "Transfer from Gangwon FC",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Premier League (England)","EFL Championship (England)"],
+    "Played Leagues": [
+      "Premier League (England)",
+      "EFL Championship (England)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Yang Min-hyuk Tottenham Hotspur.jpg"
   },
   {
     "Profile": "Ko Young-jun",
@@ -1055,10 +1324,14 @@ const players = [
     "First League": "Serbian SuperLiga (Serbia)",
     "Transfer Reason": "Transfer from Pohang Steelers",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["Serbian SuperLiga (Serbia)","Super Liga Srbije (Serbia)"],
+    "Played Leagues": [
+      "Serbian SuperLiga (Serbia)",
+      "Super Liga Srbije (Serbia)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Ko Young-jun FK Partizan.jpg"
   },
   {
     "Profile": "Lee Seung-jun",
@@ -1071,10 +1344,13 @@ const players = [
     "First League": "League of Ireland Premier Division (Ireland)",
     "Transfer Reason": "Transfer from FC Seoul",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["League of Ireland Premier Division (Ireland)"],
+    "Played Leagues": [
+      "League of Ireland Premier Division (Ireland)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingInKorea",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Lee Seung-jun Cork City FC.jpg"
   },
   {
     "Profile": "Won Du-jae",
@@ -1087,11 +1363,14 @@ const players = [
     "First League": "J2 League (Japan)",
     "Transfer Reason": "Transfer from Hanyang University",
     "Total Overseas Transfers": "2",
-    "Played Leagues": ["J2 League (Japan)","UAE Pro League (UAE)"],
+    "Played Leagues": [
+      "J2 League (Japan)",
+      "UAE Pro League (UAE)"
+    ],
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2020 AFC Champions League Winner, 2020 AFC U-23 Asian Cup MVP, 2020 AFC U-23 Asian Cup Winner",
-    "Image": null
+    "Image": "assets/players_image/Won Du-jae Avispa Fukuoka.jpg"
   },
   {
     "Profile": "Cho Yu-min",
@@ -1104,11 +1383,13 @@ const players = [
     "First League": "UAE Pro League (UAE)",
     "Transfer Reason": "Transfer from Daejeon Hana Citizen",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["UAE Pro League (UAE)"],
+    "Played Leagues": [
+      "UAE Pro League (UAE)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "2018 Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Cho Yu-min Sharjah.jpg"
   },
   {
     "Profile": "Park Yong-woo",
@@ -1121,11 +1402,13 @@ const players = [
     "First League": "UAE Pro League (UAE)",
     "Transfer Reason": "Transfer from Ulsan Hyundai",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["UAE Pro League (UAE)"],
+    "Played Leagues": [
+      "UAE Pro League (UAE)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "2022 K League 1 Winner",
-    "Image": null
+    "Image": "assets/players_image/Park Yong-woo Al Ain.jpg"
   },
   {
     "Profile": "Lee Hyun-joo",
@@ -1138,11 +1421,14 @@ const players = [
     "First League": "Regionalliga Bayern (Germany)",
     "Transfer Reason": "Loan from Pohang Steelers",
     "Total Overseas Transfers": "3",
-    "Played Leagues": ["Regionalliga Bayern (Germany)","2. Bundesliga (Germany)"],
+    "Played Leagues": [
+      "Regionalliga Bayern (Germany)",
+      "2. Bundesliga (Germany)"
+    ],
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2023-24 2. Bundesliga 4 goals",
-    "Image": null
+    "Image": "assets/players_image/Lee Hyun-joo Bayern Munich II.jpg"
   },
   {
     "Profile": "Um Ji-sung",
@@ -1155,11 +1441,13 @@ const players = [
     "First League": "EFL Championship (England)",
     "Transfer Reason": "Transfer from Gwangju FC",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["EFL Championship (England)"],
+    "Played Leagues": [
+      "EFL Championship (England)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2022 K League 2 Young Player of the Year, 2022 K League 2 Best XI",
-    "Image": null
+    "Image": "assets/players_image/Um Ji-sung Swansea City.jpg"
   },
   {
     "Profile": "Park Min-gyu",
@@ -1172,10 +1460,13 @@ const players = [
     "First League": "J1 League (Japan)",
     "Transfer Reason": "Transfer from Suwon FC",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["J1 League (Japan)"],
+    "Played Leagues": [
+      "J1 League (Japan)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingInKorea",
-    "Performance": null
+    "Performance": null,
+    "Image": "assets/players_image/Park Min-gyu Hokkaido Consadole Sapporo.jpg"
   },
   {
     "Profile": "Kim Jun-hong",
@@ -1188,7 +1479,9 @@ const players = [
     "First League": "MLS (USA)",
     "Transfer Reason": "Transfer from Jeonbuk Hyundai Motors",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["MLS (USA)"],
+    "Played Leagues": [
+      "MLS (USA)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2023 FIFA U-20 World Cup 4th place",
@@ -1205,10 +1498,12 @@ const players = [
     "First League": "MLS (USA)",
     "Transfer Reason": "Transfer from Gwangju FC",
     "Total Overseas Transfers": "1",
-    "Played Leagues": ["MLS (USA)"],
+    "Played Leagues": [
+      "MLS (USA)"
+    ],
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2023 Asian Games Gold Medalist",
-    "Image": null
+    "Image": "assets/players_image/Jung Ho-yeon Minnesota United.jpg"
   }
 ];

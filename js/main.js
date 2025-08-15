@@ -232,6 +232,17 @@ function showMainView() {
         borderWidth: 0, 
         opacity: 1 
       },
+      // 레이블 배경색도 흰색으로 유지
+      label: {
+        ...node.label,
+        rich: {
+          b: {
+            ...node.label.rich.b,
+            backgroundColor: 'rgba(255,255,255,1)',
+            color: '#222'
+          }
+        }
+      },
       // 화면 전체에 랜덤하게 배치
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight
@@ -272,6 +283,10 @@ function showMainView() {
 
 // 최초 진입 시 메인 뷰
 showMainView();
+
+
+
+
 
 // 그래프 컨테이너에 트랜지션 스타일 추가
 const mainDiv = document.getElementById('main');
@@ -491,10 +506,14 @@ function updateGraphByChips() {
   const isNoFilter = Object.keys(activeFilters).length === 0;
   const filteredNodes = players.map(player => {
     const isSelected = filteredPlayers.some(fp => fp.Profile === player.Profile);
+    const nodeColor = isNoFilter ? 'rgba(255,255,255,0.95)' : (isSelected ? '#32BEFF' : 'rgba(255,255,255,0.95)');
+    const labelBackgroundColor = isNoFilter ? 'rgba(255,255,255,1)' : (isSelected ? '#32BEFF' : 'rgba(255,255,255,1)');
+    const labelTextColor = isNoFilter ? '#222' : (isSelected ? '#000000' : '#222');
+    
     const node = {
       name: player.Profile,
       category: 'player',
-      itemStyle: { color: isNoFilter ? 'rgba(255,255,255,0.95)' : (isSelected ? '#32BEFF' : 'rgba(255,255,255,0.95)'), borderColor: 'transparent', borderWidth: 0, opacity: 0.85 },
+      itemStyle: { color: nodeColor, borderColor: 'transparent', borderWidth: 0, opacity: 0.85 },
       symbolSize: 11,
       emphasis: {
         itemStyle: { color: '#32BEFF', opacity: 1 },
@@ -515,8 +534,8 @@ function updateGraphByChips() {
         formatter: '{b|{b}}',
         rich: {
           b: {
-            color: '#222',
-            backgroundColor: 'rgba(255,255,255,1)',
+            color: labelTextColor,
+            backgroundColor: labelBackgroundColor,
             borderRadius: 8,
             padding: [4, 12, 4, 12],
             fontSize: 12,
@@ -688,9 +707,16 @@ function showRelatedPlayersByTag(key, value) {
   previousPlayerForTagView = currentPlayer;
   console.log('showRelatedPlayersByTag 호출됨, currentPlayer:', currentPlayer, 'previousPlayerForTagView:', previousPlayerForTagView);
   
-  mainDiv.style.opacity = 0;
-  setTimeout(() => {
-    const relatedPlayers = players.filter(player => {
+      mainDiv.style.opacity = 0;
+    setTimeout(() => {
+      // List 뷰에서 온 경우 처리
+      const listContainer = document.getElementById('list-container');
+      if (listContainer) {
+        listContainer.remove();
+        mainDiv.style.display = 'block';
+      }
+      
+      const relatedPlayers = players.filter(player => {
       if (key === 'First League') {
         return (player[key] || '').toLowerCase().includes(value.toLowerCase());
       } else if (key === 'Played League') {
@@ -772,7 +798,7 @@ function showRelatedPlayersByTag(key, value) {
         rich: {
           b: {
             color: '#222',
-            backgroundColor: 'rgba(255,255,255,1)',
+            backgroundColor: '#FFDD32',
             borderRadius: 8,
             padding: [4, 12, 4, 12],
             fontSize: 12,
@@ -868,6 +894,9 @@ function renderSegmentedControl() {
   const container = document.getElementById('segmented-control-container');
   container.innerHTML = `
     <div class="segmented-control">
+      <button class="seg-btn logo-seg-btn" id="logoButton">
+        <img src="assets/Logo.png" alt="AA25 ArchiveAtlas" class="logo-icon">
+      </button>
       <button class="seg-btn" data-value="Home">Home</button>
       <button class="seg-btn" data-value="Media">Media</button>
       <button class="seg-btn selected" data-value="Explore">Explore</button>
@@ -883,12 +912,32 @@ function renderSegmentedControl() {
   const btns = container.querySelectorAll('.seg-btn');
   btns.forEach(btn => {
     btn.onclick = function() {
+      // 모든 버튼에서 selected 클래스 제거
       btns.forEach(b => b.classList.remove('selected'));
+      
+      // 클릭된 버튼에 selected 클래스 추가
       btn.classList.add('selected');
-      if (btn.dataset.value === 'Explore') {
-        showMainView();
-      } else if (btn.dataset.value === 'List') {
-        showListView();
+      
+      // 로고 버튼이 선택되었을 때 이미지 변경
+      const logoIcon = document.querySelector('.logo-icon');
+      if (btn.id === 'logoButton') {
+        if (logoIcon) {
+          logoIcon.src = 'assets/Logo_01.png';
+        }
+        showProjectInfoModal();
+      } else {
+        // 다른 버튼이 선택되었을 때 원래 로고로 복원
+        if (logoIcon) {
+          logoIcon.src = 'assets/Logo.png';
+        }
+        
+        if (btn.dataset.value === 'Explore') {
+          showMainView();
+        } else if (btn.dataset.value === 'List') {
+          showListView();
+        } else if (btn.dataset.value === 'Home') {
+          showHomeView();
+        }
       }
     };
   });
@@ -905,6 +954,12 @@ function showListView() {
   // 차트를 숨기기
   const mainContainer = document.getElementById('main');
   mainContainer.style.display = 'none';
+  
+  // 기존 list-container가 있다면 제거
+  const existingListContainer = document.getElementById('list-container');
+  if (existingListContainer) {
+    existingListContainer.remove();
+  }
   
   // List 뷰를 위한 컨테이너 생성
   const listContainer = document.createElement('div');
@@ -1029,6 +1084,12 @@ function updateNodeHighlight(selectedPlayerName) {
       borderWidth: 0, 
       opacity: 0.6 
     };
+    
+    // 레이블 배경색도 기본 상태로 리셋
+    if (node.label && node.label.rich && node.label.rich.b) {
+      node.label.rich.b.backgroundColor = 'rgba(255,255,255,0.3)';
+      node.label.rich.b.color = '#222';
+    }
   });
   
   // 선택된 선수 노드만 흰색으로 변경
@@ -1040,6 +1101,12 @@ function updateNodeHighlight(selectedPlayerName) {
       borderWidth: 0, 
       opacity: 1 
     };
+    
+    // 선택된 노드의 레이블 배경색도 흰색으로 변경
+    if (selectedNode.label && selectedNode.label.rich && selectedNode.label.rich.b) {
+      selectedNode.label.rich.b.backgroundColor = 'rgba(255,255,255,1)';
+      selectedNode.label.rich.b.color = '#222';
+    }
   }
   
   // 차트 업데이트
@@ -1374,6 +1441,13 @@ function setupSearchFunctionality() {
 function showNoResultsView(searchTerm) {
   mainDiv.style.opacity = 0;
   setTimeout(() => {
+    // List 뷰에서 온 경우 처리
+    const listContainer = document.getElementById('list-container');
+    if (listContainer) {
+      listContainer.remove();
+      mainDiv.style.display = 'block';
+    }
+    
     const noResultsNode = {
       name: `No results found for "${searchTerm}"`,
       category: 'no-results',
@@ -1414,6 +1488,9 @@ function showNoResultsView(searchTerm) {
     currentView = 'search';
     renderBreadcrumb();
     
+    // main div를 표시 상태로 설정
+    mainDiv.style.display = 'block';
+    
     setTimeout(() => {
       mainDiv.style.opacity = 1;
     }, 30);
@@ -1424,18 +1501,25 @@ function showNoResultsView(searchTerm) {
 function showSearchResultsView(matchedPlayers, searchTerm) {
   mainDiv.style.opacity = 0;
   setTimeout(() => {
+    // List 뷰에서 온 경우 처리
+    const listContainer = document.getElementById('list-container');
+    if (listContainer) {
+      listContainer.remove();
+      mainDiv.style.display = 'block';
+    }
+    
     const searchNode = {
       name: `Search: "${searchTerm}" (${matchedPlayers.length} results)`,
       category: 'search',
-      itemStyle: { color: '#32BEFF', borderColor: 'transparent', borderWidth: 0, opacity: 1 },
+      itemStyle: { color: '#FFD700', borderColor: 'transparent', borderWidth: 0, opacity: 1 },
       symbolSize: 12,
       emphasis: {
-        itemStyle: { color: '#32BEFF', opacity: 1, scale: 1.3 },
+        itemStyle: { color: '#FFD700', opacity: 1, scale: 1.3 },
         label: {
           show: true,
           rich: {
             b: {
-              backgroundColor: '#32BEFF',
+              backgroundColor: '#FFD700',
               color: '#000000'
             }
           }
@@ -1449,7 +1533,7 @@ function showSearchResultsView(matchedPlayers, searchTerm) {
         rich: {
           b: {
             color: '#222',
-            backgroundColor: '#32BEFF',
+            backgroundColor: '#FFD700',
             borderRadius: 8,
             padding: [4, 12, 4, 12],
             fontSize: 12,
@@ -1463,15 +1547,15 @@ function showSearchResultsView(matchedPlayers, searchTerm) {
     const matchedPlayerNodes = matchedPlayers.map(player => ({
       name: player.Profile,
       category: 'player',
-      itemStyle: { color: '#32BEFF', borderColor: 'transparent', borderWidth: 0, opacity: 1 },
+      itemStyle: { color: '#FFD700', borderColor: 'transparent', borderWidth: 0, opacity: 1 },
       symbolSize: 11,
       emphasis: {
-        itemStyle: { color: '#32BEFF', opacity: 1, scale: 1.3 },
+        itemStyle: { color: '#FFD700', opacity: 1, scale: 1.3 },
         label: {
           show: true,
           rich: {
             b: {
-              backgroundColor: '#32BEFF',
+              backgroundColor: '#FFD700',
               color: '#fff'
             }
           }
@@ -1485,7 +1569,7 @@ function showSearchResultsView(matchedPlayers, searchTerm) {
         rich: {
           b: {
             color: '#222',
-            backgroundColor: 'rgba(255,255,255,1)',
+            backgroundColor: '#FFD700',
             borderRadius: 8,
             padding: [4, 12, 4, 12],
             fontSize: 12,
@@ -1500,7 +1584,7 @@ function showSearchResultsView(matchedPlayers, searchTerm) {
       source: `Search: "${searchTerm}" (${matchedPlayers.length} results)`,
       target: player.Profile,
       lineStyle: {
-        color: '#32BEFF',
+        color: '#FFD700',
         width: 1.3,
         curveness: 0.3
       }

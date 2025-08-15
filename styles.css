@@ -1,19 +1,31 @@
 /* Main Styles */
 body {
-  background: #fff; /* fallback */
   font-family: Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
-#bg-canvas {
+
+
+
+
+/* 비디오 배경 */
+.background-video {
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
   z-index: -1;
-  pointer-events: none;
-  display: block;
 }
+
+
+
+
+
+
 
 /* Sidebar Styles */
 .sidebar {
@@ -318,7 +330,7 @@ body.player-detail-view .sidebar-hover-area {
 }
 
 .player-detail-section {
-  background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(245,245,245,0.06) 40%, rgba(235,235,235,0.04) 100%);
+  background: linear-gradient(160deg, rgba(255,255,255,0.20) 0%, rgba(245,245,245,0.20) 40%, rgba(235,235,235,0.20) 100%);
   border-radius: 24px;
   box-shadow: 0 4px 16px 0 rgba(0,0,0,0.05);
   width: 100%;
@@ -422,7 +434,7 @@ body.player-detail-view .sidebar-hover-area {
 }
 
 .player-info-label {
-  color: #666;
+  color: #333;
   font-size: 14px;
   font-weight: 400;
   flex-shrink: 0;
@@ -498,16 +510,21 @@ body.player-detail-view .sidebar-hover-area {
 
 .segmented-control {
   display: flex;
-  background: #1e1e1e;
+  background: rgba(30, 30, 30, 0.85);
   border-radius: 20px;
-  width: 426px;
+  width: 600px;
   height: 53px;
   align-items: center;
   padding: 4px;
   gap: 0;
   box-sizing: border-box;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   pointer-events: auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .seg-btn {
@@ -516,10 +533,10 @@ body.player-detail-view .sidebar-hover-area {
   margin: 0 2px;
   border: none;
   border-radius: 16px;
-  background: #1e1e1e;
-  color: #cecece;
+  background: transparent;
+  color: #ffffff;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, font-size 0.2s;
@@ -532,15 +549,36 @@ body.player-detail-view .sidebar-hover-area {
 }
 
 .seg-btn:not(.selected):hover {
-  background: #303030;
+  background: transparent;
   color: #fff;
-  font-size: 19px;
+  font-size: 18.5px; /* Hover: 18.5px */
 }
 
 .seg-btn.selected:hover {
-  background: #dcdcdc;
+  background: #ffffff;
   color: #1e1e1e;
-  font-size: 19px;
+  font-size: 18.5px; /* 선택 + Hover: 18.5px */
+}
+
+/* Logo Button Styles (in segmented control) */
+.logo-seg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, font-size 0.2s;
+  flex: 1.8;
+}
+
+.logo-icon {
+  width: 140px;
+  height: auto;
+  filter: brightness(1.0);
+  transition: all 0.2s ease;
+}
+
+.logo-seg-btn:hover .logo-icon {
+  width: 145px;
 }
 
 /* Breadcrumb Navigation */
@@ -661,21 +699,7 @@ body.player-detail-view .sidebar-hover-area {
   }
 }
 
-/* Logo Styles */
-.logo-container {
-  position: fixed;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-  pointer-events: none;
-}
 
-.logo {
-  height: 120px;
-  width: auto;
-  opacity: 1;
-}
 
 /* Search Input Wrapper Styles */
 .search-input-wrapper {
@@ -686,12 +710,15 @@ body.player-detail-view .sidebar-hover-area {
   width: 53px;
   height: 53px;
   border-radius: 50%;
-  background: #1e1e1e;
+  background: rgba(30, 30, 30, 0.85);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .search-input-wrapper.expanded {
@@ -723,7 +750,7 @@ body.player-detail-view .sidebar-hover-area {
 }
 
 .search-input::placeholder {
-  color: #cecece;
+  color: #ffffff;
   opacity: 0.8;
 }
 
@@ -746,15 +773,15 @@ body.player-detail-view .sidebar-hover-area {
 }
 
 .search-button:hover {
-  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-50%) scale(1.1);
+  border-radius: 50%;
 }
 
 .search-button img {
   transition: all 0.3s ease;
   width: 44px;
   height: 44px;
-  filter: brightness(0.8);
+  filter: brightness(1.0);
 }
 
 .search-button:hover img {
