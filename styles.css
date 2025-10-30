@@ -811,8 +811,8 @@ body.player-detail-view .sidebar-hover-area {
   display: flex;
   background: rgba(30, 30, 30, 0.85);
   border-radius: 20px;
-  width: 600px;
-  height: 53px;
+  width: 500px;
+  height: 57px;
   align-items: center;
   padding: 4px;
   gap: 0;
@@ -866,18 +866,20 @@ body.player-detail-view .sidebar-hover-area {
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, font-size 0.2s;
-  flex: 1.8;
+  /* 로고 버튼은 내용 크기만 차지 (여백 최소화) */
+  flex: 0 0 auto;
+  padding: 0 8px;
 }
 
 .logo-icon {
-  width: 140px;
+  width: 28px;
   height: auto;
   filter: brightness(1.0);
   transition: all 0.2s ease;
 }
 
 .logo-seg-btn:hover .logo-icon {
-  width: 145px;
+  width: 32px;
 }
 
 /* Breadcrumb Navigation */

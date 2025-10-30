@@ -123,10 +123,22 @@ function renderBreadcrumb() {
   html += '</div>';
   breadcrumb.innerHTML = html;
   
-  // Player pill 클릭 이벤트
-  document.getElementById('bc-player').onclick = function() {
-    showMainView();
-  };
+  // Player pill 상태/클릭 이벤트
+  const playerPillEl = document.getElementById('bc-player');
+  if (playerPillEl) {
+    if (currentView === 'home') {
+      // Home에서는 비활성화
+      playerPillEl.onclick = null;
+      playerPillEl.style.pointerEvents = 'none';
+      playerPillEl.style.opacity = '0';
+    } else {
+      playerPillEl.style.pointerEvents = '';
+      playerPillEl.style.opacity = '';
+      playerPillEl.onclick = function() {
+        showMainView();
+      };
+    }
+  }
   
   // Player name pill 클릭 이벤트 (선수 상세뷰로 돌아가기)
   const playerNamePill = document.getElementById('bc-playername');
@@ -212,9 +224,31 @@ function showMainView() {
     listContainer.remove();
   }
   
+  // Home(PDF) 뷰에서 온 경우 처리
+  const homeContainer = document.getElementById('home-container');
+  if (homeContainer) {
+    homeContainer.remove();
+  }
+
+  // Media 뷰에서 온 경우 처리
+  const mediaContainer = document.getElementById('media-container');
+  if (mediaContainer) {
+    mediaContainer.remove();
+  }
+  
   // 차트 컨테이너 다시 표시
   const mainContainer = document.getElementById('main');
   mainContainer.style.display = 'block';
+
+  // Home 뷰에서 숨겼던 UI 복원
+  const filterSidebarFromHome = document.querySelector('.sidebar');
+  if (filterSidebarFromHome) filterSidebarFromHome.style.display = '';
+  const filterFabFromHome = document.getElementById('filterFab');
+  if (filterFabFromHome) filterFabFromHome.style.display = '';
+  const hoverAreaFromHome = document.querySelector('.sidebar-hover-area');
+  if (hoverAreaFromHome) hoverAreaFromHome.style.display = '';
+  const playerDetailSidebarFromHome = document.querySelector('.player-detail-sidebar');
+  if (playerDetailSidebarFromHome) playerDetailSidebarFromHome.style.display = '';
   
   // 차트 크기 조정 및 렌더링 갱신
   if (chart) {
@@ -266,6 +300,14 @@ function showMainView() {
     }]
   });
   renderBreadcrumb();
+  
+  // Home(메인) 진입 시 필터 사이드바 자동 오픈
+  const filterSidebarOnHome = document.querySelector('.sidebar');
+  if (filterSidebarOnHome) {
+    filterSidebarOnHome.classList.add('active');
+    filterSidebarOnHome.classList.remove('collapsed');
+    document.body.classList.add('sidebar-open');
+  }
   
   // 검색창 축소
   const searchWrapper = document.getElementById('searchWrapper');
@@ -897,10 +939,10 @@ function renderSegmentedControl() {
       <button class="seg-btn logo-seg-btn" id="logoButton">
         <img src="assets/Logo.png" alt="AA25 ArchiveAtlas" class="logo-icon">
       </button>
-      <button class="seg-btn" data-value="Home">Home</button>
-      <button class="seg-btn" data-value="Media">Media</button>
-      <button class="seg-btn selected" data-value="Explore">Explore</button>
+      <button class="seg-btn selected" data-value="Home">Home</button>
+      <button class="seg-btn" data-value="Overview">Overview</button>
       <button class="seg-btn" data-value="List">List</button>
+      <button class="seg-btn" data-value="Media">Media</button>
     </div>
     <div class="search-input-wrapper" id="searchWrapper">
       <input type="text" id="searchInput" placeholder="Search players..." class="search-input">
@@ -912,35 +954,151 @@ function renderSegmentedControl() {
   const btns = container.querySelectorAll('.seg-btn');
   btns.forEach(btn => {
     btn.onclick = function() {
-      // 모든 버튼에서 selected 클래스 제거
-      btns.forEach(b => b.classList.remove('selected'));
-      
-      // 클릭된 버튼에 selected 클래스 추가
-      btn.classList.add('selected');
-      
-      // 로고 버튼이 선택되었을 때 이미지 변경
       const logoIcon = document.querySelector('.logo-icon');
+      // 로고 클릭: 선택 상태 변경 없이 모달만 표시
       if (btn.id === 'logoButton') {
-        if (logoIcon) {
-          logoIcon.src = 'assets/Logo_01.png';
-        }
+        // 로고 색상/이미지 변경하지 않음
         showProjectInfoModal();
-      } else {
-        // 다른 버튼이 선택되었을 때 원래 로고로 복원
-        if (logoIcon) {
-          logoIcon.src = 'assets/Logo.png';
-        }
-        
-        if (btn.dataset.value === 'Explore') {
-          showMainView();
-        } else if (btn.dataset.value === 'List') {
-          showListView();
-        } else if (btn.dataset.value === 'Home') {
-          showHomeView();
-        }
+        return;
+      }
+
+      // 탭 버튼 클릭: 선택 상태 갱신
+      btns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      // 로고는 기본 이미지로 복원
+      if (logoIcon) logoIcon.src = 'assets/Logo.png';
+
+      if (btn.dataset.value === 'Home') {
+        showMainView();
+      } else if (btn.dataset.value === 'List') {
+        showListView();
+      } else if (btn.dataset.value === 'Overview') {
+        showHomeView();
+      } else if (btn.dataset.value === 'Media') {
+        showMediaView();
       }
     };
   });
+}
+
+// 프로젝트 정보 모달
+function showProjectInfoModal() {
+  // 이미 열려 있으면 재생성하지 않음
+  if (document.getElementById('project-info-modal')) return;
+
+  const overlay = document.createElement('div');
+  overlay.id = 'project-info-modal';
+  overlay.style.cssText = [
+    'position:fixed',
+    'inset:0',
+    'background:rgba(0,0,0,0.6)',
+    'display:flex',
+    'align-items:center',
+    'justify-content:center',
+    'z-index:9999'
+  ].join(';');
+
+  const modal = document.createElement('div');
+  modal.style.cssText = [
+    'background:rgba(10,14,20,0.95)',
+    'border:1px solid rgba(255,255,255,0.08)',
+    'box-shadow:0 10px 30px rgba(0,0,0,0.4)',
+    'border-radius:12px',
+    'padding:20px 24px',
+    'max-width:520px',
+    'width:92%',
+    'color:#fff',
+    'font-size:14px',
+    'line-height:1.6',
+  ].join(';');
+
+  modal.innerHTML = `
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/Logo.png" alt="AA25" width="28" height="28" style="display:block;">
+        <div style="font-weight:700; font-size:16px;">ArchiveAtlas</div>
+      </div>
+      <button id="project-info-close" aria-label="Close" style="background:transparent; color:#fff; border:0; font-size:22px; cursor:pointer; line-height:1;">×</button>
+    </div>
+    <div style="opacity:0.88;">
+      Interactive visualization of Korean footballers' overseas careers with filters, tags, and player details.
+    </div>
+  `;
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  const close = () => {
+    overlay.remove();
+    document.removeEventListener('keydown', onKey);
+  };
+  const onKey = (e) => {
+    if (e.key === 'Escape') close();
+  };
+
+  // 클릭 핸들러
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) close();
+  });
+  document.getElementById('project-info-close').addEventListener('click', close);
+  document.addEventListener('keydown', onKey);
+}
+
+// Figma 디자인 임베드 모달
+function showFigmaDesignModal(figmaUrl) {
+  // 이미 열려 있으면 재생성하지 않음
+  if (document.getElementById('figma-design-modal')) return;
+
+  const overlay = document.createElement('div');
+  overlay.id = 'figma-design-modal';
+  overlay.style.cssText = [
+    'position:fixed',
+    'inset:0',
+    'background:rgba(0,0,0,0.6)',
+    'display:flex',
+    'align-items:center',
+    'justify-content:center',
+    'z-index:9999'
+  ].join(';');
+
+  const modal = document.createElement('div');
+  modal.style.cssText = [
+    'background:rgba(10,14,20,0.95)',
+    'border:1px solid rgba(255,255,255,0.08)',
+    'box-shadow:0 10px 30px rgba(0,0,0,0.4)',
+    'border-radius:12px',
+    'padding:0',
+    'width:92%',
+    'max-width:1100px',
+    'height:80vh',
+    'overflow:hidden'
+  ].join(';');
+
+  const header = document.createElement('div');
+  header.style.cssText = 'display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 12px; color:#fff;';
+  header.innerHTML = `
+    <div style="display:flex; align-items:center; gap:10px;">
+      <img src="assets/Logo.png" alt="AA25" width="20" height="20" style="display:block;">
+      <div style="font-weight:600; font-size:14px;">Figma Preview</div>
+    </div>
+    <button id="figma-design-close" aria-label="Close" style="background:transparent; color:#fff; border:0; font-size:20px; cursor:pointer; line-height:1;">×</button>
+  `;
+
+  const iframe = document.createElement('iframe');
+  const encoded = encodeURIComponent(figmaUrl);
+  iframe.src = `https://www.figma.com/embed?embed_host=share&url=${encoded}`;
+  iframe.style.cssText = 'width:100%; height:calc(100% - 42px); border:0; background:#0a0e14;';
+  iframe.setAttribute('allowfullscreen', 'true');
+
+  modal.appendChild(header);
+  modal.appendChild(iframe);
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  const close = () => overlay.remove();
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.getElementById('figma-design-close').addEventListener('click', close);
 }
 
 // List 뷰 표시 함수
@@ -955,11 +1113,45 @@ function showListView() {
   const mainContainer = document.getElementById('main');
   mainContainer.style.display = 'none';
   
+  // Media에서는 필터 UI 숨김
+  const mediaFilterSidebar = document.querySelector('.sidebar');
+  if (mediaFilterSidebar) mediaFilterSidebar.style.display = 'none';
+  const mediaFilterFab = document.getElementById('filterFab');
+  if (mediaFilterFab) mediaFilterFab.style.display = 'none';
+  const mediaHoverArea = document.querySelector('.sidebar-hover-area');
+  if (mediaHoverArea) mediaHoverArea.style.display = 'none';
+  document.body.classList.remove('sidebar-open');
+  
+  // List에서는 필터 UI 숨김
+  const listFilterSidebar = document.querySelector('.sidebar');
+  if (listFilterSidebar) listFilterSidebar.style.display = 'none';
+  const listFilterFab = document.getElementById('filterFab');
+  if (listFilterFab) listFilterFab.style.display = 'none';
+  const listHoverArea = document.querySelector('.sidebar-hover-area');
+  if (listHoverArea) listHoverArea.style.display = 'none';
+  document.body.classList.remove('sidebar-open');
+  
   // 기존 list-container가 있다면 제거
   const existingListContainer = document.getElementById('list-container');
   if (existingListContainer) {
     existingListContainer.remove();
   }
+  
+  // Home(PDF) 뷰가 있다면 제거
+  const existingHomeContainer = document.getElementById('home-container');
+  if (existingHomeContainer) {
+    existingHomeContainer.remove();
+  }
+
+  // Media 뷰가 있다면 제거
+  const existingMediaContainer = document.getElementById('media-container');
+  if (existingMediaContainer) {
+    existingMediaContainer.remove();
+  }
+
+  // List에서는 플레이어 상세 사이드바도 숨김
+  const playerDetailSidebarFromHome2 = document.querySelector('.player-detail-sidebar');
+  if (playerDetailSidebarFromHome2) playerDetailSidebarFromHome2.style.display = 'none';
   
   // List 뷰를 위한 컨테이너 생성
   const listContainer = document.createElement('div');
@@ -1006,6 +1198,149 @@ function showListView() {
   if (commonTagSidebar) {
     commonTagSidebar.classList.add('hidden');
   }
+}
+
+// Media 뷰 표시 함수 (텍스트 전용 WIP 화면)
+function showMediaView() {
+  currentView = 'media';
+  currentPlayer = null;
+  currentTagKey = null;
+  currentTagValue = null;
+  document.body.classList.remove('player-detail-view');
+  
+  // 차트를 숨기기
+  const mainContainer = document.getElementById('main');
+  mainContainer.style.display = 'none';
+  
+  // 기존 list/media 컨테이너 정리
+  const existingListContainer = document.getElementById('list-container');
+  if (existingListContainer) existingListContainer.remove();
+
+  // 기존 Home 컨테이너 정리
+  const existingHomeContainer2 = document.getElementById('home-container');
+  if (existingHomeContainer2) existingHomeContainer2.remove();
+
+  const existingMediaContainer = document.getElementById('media-container');
+  if (existingMediaContainer) existingMediaContainer.remove();
+  
+  // Media 뷰 컨테이너 생성 (텍스트만 표시)
+  const mediaContainer = document.createElement('div');
+  mediaContainer.id = 'media-container';
+  mediaContainer.style.cssText = 'flex:1; min-width:0; min-height:0; display:flex; align-items:center; justify-content:center;';
+  mediaContainer.innerHTML = `
+    <div style="text-align:center; color:#ffffff; font-size:30px; line-height:1.6;">Work in progress</div>
+  `;
+  
+  // main의 부모 요소에 media container 추가
+  mainContainer.parentNode.appendChild(mediaContainer);
+  
+  // 공통 태그 사이드바 닫기 및 브레드크럼 갱신
+  const commonTagSidebar = document.querySelector('#common-tag-sidebar');
+  if (commonTagSidebar) {
+    commonTagSidebar.classList.add('hidden');
+  }
+  renderBreadcrumb();
+}
+
+// Home(PDF) 뷰 표시 함수
+function showHomeView() {
+  currentView = 'home';
+  currentPlayer = null;
+  currentTagKey = null;
+  currentTagValue = null;
+  document.body.classList.remove('player-detail-view');
+
+  // 차트를 숨기기
+  const mainContainer = document.getElementById('main');
+  mainContainer.style.display = 'none';
+
+  // Home 뷰에서 Player/Filter UI 숨김
+  const filterSidebar = document.querySelector('.sidebar');
+  if (filterSidebar) filterSidebar.style.display = 'none';
+  const filterFab = document.getElementById('filterFab');
+  if (filterFab) filterFab.style.display = 'none';
+  const hoverArea = document.querySelector('.sidebar-hover-area');
+  if (hoverArea) hoverArea.style.display = 'none';
+  const playerDetailSidebar = document.querySelector('.player-detail-sidebar');
+  if (playerDetailSidebar) {
+    playerDetailSidebar.classList.add('hidden');
+    playerDetailSidebar.style.display = 'none';
+  }
+
+  // 기존 컨테이너 정리
+  const existingListContainer = document.getElementById('list-container');
+  if (existingListContainer) existingListContainer.remove();
+  const existingMediaContainer = document.getElementById('media-container');
+  if (existingMediaContainer) existingMediaContainer.remove();
+  const existingHomeContainer = document.getElementById('home-container');
+  if (existingHomeContainer) existingHomeContainer.remove();
+
+  // Home 뷰 컨테이너 생성 (PNG 우선: 화면 너비 맞춤 + 세로 스크롤, 실패 시 PDF)
+  const homeContainer = document.createElement('div');
+  homeContainer.id = 'home-container';
+  homeContainer.style.cssText = 'flex:1; min-width:0; min-height:0; display:flex;';
+  
+  // 스크롤 래퍼
+  const scrollWrapper = document.createElement('div');
+  scrollWrapper.style.cssText = 'width:100%; height:100%; overflow:auto;';
+  homeContainer.appendChild(scrollWrapper);
+  
+  // webp 우선 로드 (프리로드된 이미지가 있으면 즉시 표시)
+  if (homeImagePreload && homeImagePreload.complete && homeImagePreload.naturalWidth) {
+    const img = new Image();
+    img.decoding = 'async';
+    img.loading = 'eager';
+    img.setAttribute('fetchpriority', 'high');
+    img.style.cssText = 'width:100%; height:auto; display:block;';
+    img.alt = 'Home Image';
+    img.src = homeImagePreload.src;
+    scrollWrapper.appendChild(img);
+  } else {
+    const tryPng = () => {
+      const imgPng = new Image();
+      imgPng.decoding = 'async';
+      imgPng.loading = 'eager';
+      imgPng.setAttribute('fetchpriority', 'high');
+      imgPng.style.cssText = 'width:100%; height:auto; display:block;';
+      imgPng.alt = 'Home Image';
+      imgPng.onload = function() {
+        scrollWrapper.innerHTML = '';
+        scrollWrapper.appendChild(imgPng);
+      };
+      imgPng.onerror = function() {
+        // webp/png 모두 없으면 PDF로 폴백
+        scrollWrapper.innerHTML = `
+          <iframe src="assets/home.pdf#view=FitH" style="width:100%; height:100%; border:0;" title="Home PDF"></iframe>
+        `;
+      };
+      imgPng.src = 'assets/home.png';
+    };
+
+    const imgWebp = new Image();
+    imgWebp.decoding = 'async';
+    imgWebp.loading = 'eager';
+    imgWebp.setAttribute('fetchpriority', 'high');
+    imgWebp.style.cssText = 'width:100%; height:auto; display:block;';
+    imgWebp.alt = 'Home Image';
+    imgWebp.onload = function() {
+      scrollWrapper.innerHTML = '';
+      scrollWrapper.appendChild(imgWebp);
+    };
+    imgWebp.onerror = function() {
+      tryPng();
+    };
+    imgWebp.src = 'assets/home.webp';
+  }
+
+  // main의 부모 요소에 home container 추가
+  mainContainer.parentNode.appendChild(homeContainer);
+
+  // 공통 태그 사이드바 닫기 및 브레드크럼 갱신
+  const commonTagSidebar = document.querySelector('#common-tag-sidebar');
+  if (commonTagSidebar) {
+    commonTagSidebar.classList.add('hidden');
+  }
+  renderBreadcrumb();
 }
 
 // 선수 목록 렌더링 함수
@@ -1282,8 +1617,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
   
-  // 페이지 진입 시 사이드바는 접힌 상태로 시작
-  sidebar.classList.add('collapsed');
+  // 페이지 진입 시: Home(메인)이라면 사이드바 오픈, 아니면 접힌 상태로 시작
+  if (currentView === 'main') {
+    sidebar.classList.add('active');
+    sidebar.classList.remove('collapsed');
+    document.body.classList.add('sidebar-open');
+  } else {
+    sidebar.classList.add('collapsed');
+  }
   
   // 오른쪽 엣지 진입 시 자동 오픈
   document.addEventListener('mousemove', function(e) {
@@ -1652,6 +1993,28 @@ setupSearchFunctionality(); // renderSegmentedControl 후에 실행
 setupSidebarHoverEvents();
 renderChips();
 updateGraphByChips(); 
+
+// Home 이미지 프리로드로 전환 지연 최소화 (webp 우선, 실패 시 png)
+let homeImagePreload = null;
+function preloadHomeImage() {
+  const tryPngFallback = () => {
+    const imgPng = new Image();
+    imgPng.decoding = 'async';
+    imgPng.loading = 'eager';
+    imgPng.setAttribute('fetchpriority', 'high');
+    imgPng.src = 'assets/home.png';
+    imgPng.onload = () => { homeImagePreload = imgPng; };
+  };
+
+  const imgWebp = new Image();
+  imgWebp.decoding = 'async';
+  imgWebp.loading = 'eager';
+  imgWebp.setAttribute('fetchpriority', 'high');
+  imgWebp.src = 'assets/home.webp';
+  imgWebp.onload = () => { homeImagePreload = imgWebp; };
+  imgWebp.onerror = () => { tryPngFallback(); };
+}
+preloadHomeImage();
 
 // 선수 상세 뷰 그래프 생성 함수 (공통 로직)
 function createPlayerDetailGraph(player) {
