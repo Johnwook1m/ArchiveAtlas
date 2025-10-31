@@ -992,46 +992,90 @@ function showProjectInfoModal() {
   overlay.style.cssText = [
     'position:fixed',
     'inset:0',
-    'background:rgba(0,0,0,0.6)',
+    'background:rgba(0, 0, 0, 0)',
+    'backdrop-filter:blur(0px)',
+    '-webkit-backdrop-filter:blur(0px)',
     'display:flex',
     'align-items:center',
     'justify-content:center',
-    'z-index:9999'
+    'z-index:9999',
+    'transition:background 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease'
   ].join(';');
 
   const modal = document.createElement('div');
   modal.style.cssText = [
-    'background:rgba(10,14,20,0.95)',
-    'border:1px solid rgba(255,255,255,0.08)',
-    'box-shadow:0 10px 30px rgba(0,0,0,0.4)',
-    'border-radius:12px',
-    'padding:20px 24px',
-    'max-width:520px',
+    'background:rgba(255,255,255,0.95)',
+    'border:none',
+    'box-shadow:0 10px 30px rgba(0,0,0,0.2)',
+    'border-radius:70px',
+    'padding:30px 8px 20px 24px',
+    'max-width:380px',
     'width:92%',
-    'color:#fff',
-    'font-size:14px',
-    'line-height:1.6',
+    'color:#000',
+    'font-size:16px',
+    'line-height:1.8',
+    'position:relative',
+    'opacity:0',
+    'transform:scale(0.9)',
+    'transition:opacity 0.3s ease, transform 0.3s ease',
   ].join(';');
 
   modal.innerHTML = `
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px;">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <img src="assets/Logo.png" alt="AA25" width="28" height="28" style="display:block;">
-        <div style="font-weight:700; font-size:16px;">ArchiveAtlas</div>
-      </div>
-      <button id="project-info-close" aria-label="Close" style="background:transparent; color:#fff; border:0; font-size:22px; cursor:pointer; line-height:1;">×</button>
+    <div style="display:flex; justify-content:flex-start; align-items:center; margin-bottom:30px; margin-left:82px;">
+      <img src="assets/Logo Modal.png" alt="ArchiveAtlas" style="max-width:200px; width:100%; height:auto; display:block;">
     </div>
-    <div style="opacity:0.88;">
-      Interactive visualization of Korean footballers' overseas careers with filters, tags, and player details.
+
+    <div style="margin-bottom:20px; opacity:0.88; color:#000; line-height:1.7;">
+      ArchiveAtlas is a graduation project that visually documents the overseas careers of Korean footballers. It takes a narrative approach to data<br>and reconstructs it into an interactive atlas to trace patterns of movement and adaptation.
+    </div>
+    
+    <div style="margin-bottom:80px; padding-top:20px;">
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <a href="mailto:johnwkim82@gmail.com" style="color:#000; text-decoration:none; display:flex; align-items:center; gap:30px; font-size:16px;">
+          <span style="min-width:80px;">Email.</span>
+          <span>johnwkim82@gmail.com</span>
+        </a>
+        <a href="https://instagram.com/joelkim.82" target="_blank" rel="noopener noreferrer" style="color:#000; text-decoration:none; display:flex; align-items:center; gap:30px; font-size:16px;">
+          <span style="min-width:80px;">Instagram</span>
+          <span>@joelkim.82</span>
+        </a>
+      </div>
+    </div>
+    
+    <div style="display:flex; justify-content:flex-start; margin-bottom:10px; margin-left:120px;">
+      <button id="overview-button" style="background:#32BEFF; color:#000000; border:none; padding:12px 32px; border-radius:16px; font-size:14px; font-weight:normal; cursor:pointer; transition:background 0.2s;">
+        Overview
+      </button>
     </div>
   `;
 
   overlay.appendChild(modal);
   document.body.appendChild(overlay);
+  
+  // 애니메이션 시작 - 오버레이와 모달을 애니메이션
+  requestAnimationFrame(() => {
+    // 오버레이 애니메이션
+    overlay.style.background = 'rgba(0, 0, 0, 0.4)';
+    overlay.style.backdropFilter = 'blur(5px)';
+    overlay.style.webkitBackdropFilter = 'blur(10px)';
+    
+    // 모달 애니메이션
+    modal.style.opacity = '1';
+    modal.style.transform = 'scale(1)';
+  });
 
   const close = () => {
-    overlay.remove();
-    document.removeEventListener('keydown', onKey);
+    // 애니메이션으로 닫기
+    overlay.style.background = 'rgba(0, 0, 0, 0)';
+    overlay.style.backdropFilter = 'blur(0px)';
+    overlay.style.webkitBackdropFilter = 'blur(0px)';
+    modal.style.opacity = '0';
+    modal.style.transform = 'scale(0.9)';
+    
+    setTimeout(() => {
+      overlay.remove();
+      document.removeEventListener('keydown', onKey);
+    }, 300);
   };
   const onKey = (e) => {
     if (e.key === 'Escape') close();
@@ -1041,8 +1085,28 @@ function showProjectInfoModal() {
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) close();
   });
-  document.getElementById('project-info-close').addEventListener('click', close);
   document.addEventListener('keydown', onKey);
+  
+  // Overview 버튼 클릭 이벤트
+  const overviewButton = document.getElementById('overview-button');
+  if (overviewButton) {
+    overviewButton.addEventListener('mouseenter', function() {
+      this.style.background = '#2AABE8';
+    });
+    overviewButton.addEventListener('mouseleave', function() {
+      this.style.background = '#32BEFF';
+    });
+    overviewButton.addEventListener('click', function() {
+      close();
+      // Overview 탭 버튼 선택 상태 업데이트
+      const overviewBtn = document.querySelector('.seg-btn[data-value="Overview"]');
+      if (overviewBtn) {
+        document.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('selected'));
+        overviewBtn.classList.add('selected');
+      }
+      showHomeView();
+    });
+  }
 }
 
 // Figma 디자인 임베드 모달
@@ -1156,7 +1220,7 @@ function showListView() {
   // List 뷰를 위한 컨테이너 생성
   const listContainer = document.createElement('div');
   listContainer.id = 'list-container';
-  listContainer.style.cssText = 'flex:1; min-width:0; min-height:0;';
+  listContainer.style.cssText = 'flex:1; min-width:0; min-height:0; opacity:0; transform:scale(0.9); transition:opacity 0.3s ease, transform 0.3s ease;';
   listContainer.innerHTML = `
     <div class="list-view-layout">
       <div class="player-list-panel">
@@ -1183,6 +1247,12 @@ function showListView() {
   
   // 선수 목록을 렌더링
   renderPlayerList();
+  
+  // 애니메이션 시작
+  requestAnimationFrame(() => {
+    listContainer.style.opacity = '1';
+    listContainer.style.transform = 'scale(1)';
+  });
   
   renderBreadcrumb();
   
@@ -1226,13 +1296,19 @@ function showMediaView() {
   // Media 뷰 컨테이너 생성 (텍스트만 표시)
   const mediaContainer = document.createElement('div');
   mediaContainer.id = 'media-container';
-  mediaContainer.style.cssText = 'flex:1; min-width:0; min-height:0; display:flex; align-items:center; justify-content:center;';
+  mediaContainer.style.cssText = 'flex:1; min-width:0; min-height:0; display:flex; align-items:center; justify-content:center; opacity:0; transform:scale(0.9); transition:opacity 0.3s ease, transform 0.3s ease;';
   mediaContainer.innerHTML = `
     <div style="text-align:center; color:#ffffff; font-size:30px; line-height:1.6;">Work in progress</div>
   `;
   
   // main의 부모 요소에 media container 추가
   mainContainer.parentNode.appendChild(mediaContainer);
+  
+  // 애니메이션 시작
+  requestAnimationFrame(() => {
+    mediaContainer.style.opacity = '1';
+    mediaContainer.style.transform = 'scale(1)';
+  });
   
   // 공통 태그 사이드바 닫기 및 브레드크럼 갱신
   const commonTagSidebar = document.querySelector('#common-tag-sidebar');
@@ -1278,7 +1354,7 @@ function showHomeView() {
   // Home 뷰 컨테이너 생성 (PNG 우선: 화면 너비 맞춤 + 세로 스크롤, 실패 시 PDF)
   const homeContainer = document.createElement('div');
   homeContainer.id = 'home-container';
-  homeContainer.style.cssText = 'flex:1; min-width:0; min-height:0; display:flex;';
+  homeContainer.style.cssText = 'flex:1; min-width:0; min-height:0; display:flex; opacity:0; transform:scale(0.9); transition:opacity 0.3s ease, transform 0.3s ease;';
   
   // 스크롤 래퍼
   const scrollWrapper = document.createElement('div');
@@ -1335,6 +1411,12 @@ function showHomeView() {
   // main의 부모 요소에 home container 추가
   mainContainer.parentNode.appendChild(homeContainer);
 
+  // 애니메이션 시작
+  requestAnimationFrame(() => {
+    homeContainer.style.opacity = '1';
+    homeContainer.style.transform = 'scale(1)';
+  });
+
   // 공통 태그 사이드바 닫기 및 브레드크럼 갱신
   const commonTagSidebar = document.querySelector('#common-tag-sidebar');
   if (commonTagSidebar) {
@@ -1348,9 +1430,24 @@ function renderPlayerList(filteredPlayers = null) {
   const playerListContainer = document.getElementById('playerListContainer');
   const playersToRender = filteredPlayers || players;
   
-  playerListContainer.innerHTML = '';
+  // 이미지가 있는 선수와 없는 선수로 분리
+  const playersWithImage = [];
+  const playersWithoutImage = [];
   
   playersToRender.forEach(player => {
+    if (player.Image && player.Image !== null) {
+      playersWithImage.push(player);
+    } else {
+      playersWithoutImage.push(player);
+    }
+  });
+  
+  // 이미지가 있는 선수 먼저, 그 다음 없는 선수
+  const sortedPlayers = [...playersWithImage, ...playersWithoutImage];
+  
+  playerListContainer.innerHTML = '';
+  
+  sortedPlayers.forEach(player => {
     const listItem = document.createElement('div');
     listItem.className = 'player-list-item';
     listItem.setAttribute('data-player', player.Profile);
@@ -1602,6 +1699,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 마우스 진입 시 자동 토글
   sidebar.addEventListener('mouseenter', () => {
+    // 모달이 열려있으면 사이드바 자동 오픈 비활성화
+    const projectModal = document.getElementById('project-info-modal');
+    if (projectModal) return;
+    
     if (currentView === 'main') {
       sidebar.classList.add('active');
       sidebar.classList.remove('collapsed');
@@ -1628,6 +1729,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 오른쪽 엣지 진입 시 자동 오픈
   document.addEventListener('mousemove', function(e) {
+    // 모달이 열려있으면 사이드바 자동 오픈 비활성화
+    const projectModal = document.getElementById('project-info-modal');
+    if (projectModal) return;
+    
     if (currentView === 'main' && e.clientX >= window.innerWidth - 10) {
       sidebar.classList.add('active');
       sidebar.classList.remove('collapsed');
