@@ -1403,9 +1403,10 @@ function showHomeView() {
       scrollWrapper.appendChild(imgWebp);
     };
     imgWebp.onerror = function() {
+      console.error('Failed to load Home.webp, trying PNG fallback');
       tryPng();
     };
-    imgWebp.src = 'assets/Home.webp';
+    imgWebp.src = './assets/Home.webp';
   }
 
   // main의 부모 요소에 home container 추가
@@ -2114,9 +2115,15 @@ function preloadHomeImage() {
   imgWebp.decoding = 'async';
   imgWebp.loading = 'eager';
   imgWebp.setAttribute('fetchpriority', 'high');
-  imgWebp.src = 'assets/Home.webp';
-  imgWebp.onload = () => { homeImagePreload = imgWebp; };
-  imgWebp.onerror = () => { tryPngFallback(); };
+  imgWebp.src = './assets/Home.webp';
+  imgWebp.onload = () => { 
+    console.log('Home.webp preloaded successfully');
+    homeImagePreload = imgWebp; 
+  };
+  imgWebp.onerror = () => { 
+    console.error('Failed to preload Home.webp, trying PNG fallback');
+    tryPngFallback(); 
+  };
 }
 preloadHomeImage();
 
