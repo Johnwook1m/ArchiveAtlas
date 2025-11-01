@@ -1430,20 +1430,19 @@ function renderPlayerList(filteredPlayers = null) {
   const playerListContainer = document.getElementById('playerListContainer');
   const playersToRender = filteredPlayers || players;
   
-  // 이미지가 있는 선수와 없는 선수로 분리
-  const playersWithImage = [];
-  const playersWithoutImage = [];
-  
-  playersToRender.forEach(player => {
-    if (player.Image && player.Image !== null) {
-      playersWithImage.push(player);
-    } else {
-      playersWithoutImage.push(player);
+  // Birth Year 기준으로 정렬 (오름차순: 연장자부터)
+  const sortedPlayers = [...playersToRender].sort((a, b) => {
+    const yearA = parseInt(a["Birth Year"]) || 0;
+    const yearB = parseInt(b["Birth Year"]) || 0;
+    
+    // Birth Year로 먼저 정렬
+    if (yearA !== yearB) {
+      return yearA - yearB;
     }
+    
+    // Birth Year가 같으면 이름순으로 정렬
+    return a.Profile.localeCompare(b.Profile);
   });
-  
-  // 이미지가 있는 선수 먼저, 그 다음 없는 선수
-  const sortedPlayers = [...playersWithImage, ...playersWithoutImage];
   
   playerListContainer.innerHTML = '';
   

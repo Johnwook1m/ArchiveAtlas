@@ -41,7 +41,7 @@ const players = [
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "2002 WC goal vs Italy, Jupiler Pro League top scorer",
-    "Image": "assets/players_image_updated/Seol Ki-hyeon.jpeg"
+    "Image": "assets/players_image_updated/Seol Ki-hyeon copy.jpeg"
   },
   {
     "Profile": "Lee Dong-gook",
@@ -61,7 +61,7 @@ const players = [
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "0 goals in 30 European apps",
-    "Image": "assets/players_image_updated/Lee Dong Gook Unveiling Press Conference.jpg"
+    "Image": "assets/players_image_updated/Lee Dong-gook.png"
   },
   {
     "Profile": "Ahn Jung-hwan",
@@ -105,7 +105,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "100+ J-League apps, J2 League promotion",
-    "Image": "assets/players_image_updated/Yoon Jung-hwan Cerezo Osaka.jpg"
+    "Image": "assets/players_image_updated/Yoon Jung-hwan.png"
   },
   {
     "Profile": "Shim Jae-won",
@@ -125,7 +125,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "J.League Cup Winner",
-    "Image": null
+    "Image": "assets/players_image_updated/Shim Jae-won.png"
   },
   {
     "Profile": "Song Chong-gug",
@@ -146,7 +146,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "K League Rookie of the Year, 2002 World Cup 4th place",
-    "Image": "assets/players_image_updated/Song Chong-gug Feyenoord.jpg"
+    "Image": "assets/players_image_updated/Song Chong-gug.png"
   },
   {
     "Profile": "Cha Du-ri",
@@ -169,7 +169,7 @@ const players = [
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "Retired",
     "Performance": "DFB-Pokal Winner, Scottish Cup Winner",
-    "Image": "assets/players_image_updated/Cha Du-ri Bayer.png"
+    "Image": "assets/players_image_updated/Cha Du-ri.png"
   },
   {
     "Profile": "Lee Young-pyo",
@@ -191,7 +191,7 @@ const players = [
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "Retired",
     "Performance": "Eredivisie Winner, KNVB Cup Winner, League Cup Winner",
-    "Image": "assets/players_image_updated/Lee Young-pyo PSV Eindhoven.jpg"
+    "Image": "assets/players_image_updated/Lee Young-pyo.jpg"
   },
   {
     "Profile": "Lee Chun-soo",
@@ -236,7 +236,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "AFC Champions League Winner, K League 1 Winner",
-    "Image": "assets/players_image_updated/Kim Nam-il.jpeg"
+    "Image": "assets/players_image_updated/Kim Nam-il.png"
   },
   {
     "Profile": "Lee Eul-yong",
@@ -342,7 +342,7 @@ const players = [
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "Ligue 1 Player of the Month, Olympic Bronze Medalist",
-    "Image": null
+    "Image": "assets/players_image_updated/Park Ju-young.png"
   },
   {
     "Profile": "Lee Keun-ho",
@@ -363,7 +363,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "AFC Player of the Year, AFC Champions League Winner",
-    "Image": "assets/players_image_updated/Lee Keun-ho Jubilo Iwata.jpg"
+    "Image": "assets/players_image_updated/Lee Keun-ho.png"
   },
   {
     "Profile": "Suk Hyun-jun",
@@ -410,7 +410,7 @@ const players = [
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "EFL Cup Winner, Scottish Premier League Winner, 100+ Premier League apps",
-    "Image": "assets/players_image_updated/Ki Sung-yueng.webp"
+    "Image": "assets/players_image_updated/Ki Sung-yueng.png"
   },
   {
     "Profile": "Lee Chung-yong",
@@ -432,7 +432,7 @@ const players = [
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "Bolton Player of the Year, World Cup goals",
-    "Image": "assets/players_image_updated/Lee Chung-yong Bolton Wanderers.jpg"
+    "Image": "assets/players_image_updated/Lee Chung-yong.png"
   },
   {
     "Profile": "Paik Seung-ho",
@@ -498,7 +498,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "K League 1 MVP, AFC Champions League Winner",
-    "Image": "assets/players_image_updated/Kim Bo-kyung Cerezo Osaka.jpg"
+    "Image": "assets/players_image_updated/Kim Bo-kyung.png"
   },
   {
     "Profile": "Lee Kang-in",
@@ -539,7 +539,7 @@ const players = [
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "Swiss Super League Winner, Bundesliga appearances",
-    "Image": "assets/players_image_updated/Park Joo-ho FC Basel.jpg"
+    "Image": "assets/players_image_updated/Park Joo-ho.png"
   },
   {
     "Profile": "Lee Seung-woo",
@@ -648,7 +648,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "MLS Cup Winner, K League 1 Winner",
-    "Image": null
+    "Image": "assets/players_image_updated/Kim Kee-hee.png"
   },
   {
     "Profile": "Moon Seon-min",
@@ -690,7 +690,7 @@ const players = [
     "Tier Mobility": "#PeakThenDrop",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "K League 1 Runners up 2010, AFC Champions League Dream Team 2015",
-    "Image": "assets/players_image_updated/Hong Jeong-ho FC.png"
+    "Image": "assets/players_image_updated/Hong Jeong-ho.png"
   },
   {
     "Profile": "Lee Myung-jae",
@@ -711,7 +711,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "Retired",
     "Performance": "K League 1 Champion 2024",
-    "Image": "assets/players_image_updated/Lee Myung-jae Birmingham City.jpg"
+    "Image": "assets/players_image_updated/Lee Myung-jae.png"
   },
   {
     "Profile": "Hwang Hee-chan",
@@ -732,7 +732,7 @@ const players = [
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "Premier League Top Scorer contender, AFC Asian Cup semi-finalist",
-    "Image": "assets/players_image_updated/Hwang Hee-chan.webp"
+    "Image": "assets/players_image_updated/Hwang Hee-chan Red Bull Salzburg.jpg"
   },
   {
     "Profile": "Park In-hyeok",
@@ -775,7 +775,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "K League 1 Champion, AFC Champions League Winner",
-    "Image": "assets/players_image_updated/Kwon Kyung-won Tianjin Quanjian.jpg"
+    "Image": "assets/players_image_updated/Kwon Kyung-won.png"
   },
   {
     "Profile": "Kim Seung-gyu",
@@ -834,7 +834,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "2012 Olympic Bronze Medalist, K League All-Star",
-    "Image": null
+    "Image": "assets/players_image_updated/Lee Beom-young.png"
   },
   {
     "Profile": "Kwon Chang-hoon",
@@ -876,7 +876,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "2x AFC Champions League Winner, K League 1 Champion",
-    "Image": "assets/players_image_updated/Jung Seung-hyun Sagan Tosu.jpg"
+    "Image": "assets/players_image_updated/Jung Seung-hyun.png"
   },
   {
     "Profile": "Lee Jin-hyun",
@@ -1028,7 +1028,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2018 Asian Games Gold Medalist",
-    "Image": "assets/players_image_updated/Hwang In-beom Vancouver Whitecaps FC.jpg"
+    "Image": "assets/players_image_updated/Hwang In-beom.png"
   },
   {
     "Profile": "Park Kyu-hyun",
@@ -1090,7 +1090,7 @@ const players = [
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": null,
-    "Image": "assets/players_image_updated/Kim Hyun-woo Dinamo Zagreb II.jpg"
+    "Image": "assets/players_image_updated/Kim Hyun-woo.png"
   },
   {
     "Profile": "Hong Hyun-seok",
@@ -1112,7 +1112,7 @@ const players = [
     "Tier Mobility": null,
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": null,
-    "Image": "assets/players_image_updated/Hong Hyun-seok.jpg"
+    "Image": "assets/players_image_updated/Hong Hyun-seok.png"
   },
   {
     "Profile": "Kim Moon-hwan",
@@ -1311,7 +1311,7 @@ const players = [
     "Tier Mobility": "#AlwaysUpward",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": null,
-    "Image": "assets/players_image_updated/Yang Min-hyuk Tottenham Hotspur.jpg"
+    "Image": "assets/players_image_updated/Yang Min-hyuk.png"
   },
   {
     "Profile": "Ko Young-jun",
@@ -1370,7 +1370,7 @@ const players = [
     "Tier Mobility": "#YoYoMoves(2-3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2020 AFC Champions League Winner, 2020 AFC U-23 Asian Cup MVP, 2020 AFC U-23 Asian Cup Winner",
-    "Image": "assets/players_image_updated/Won Du-jae Avispa Fukuoka.jpg"
+    "Image": "assets/players_image_updated/Won Du-jae.png"
   },
   {
     "Profile": "Cho Yu-min",
@@ -1408,7 +1408,7 @@ const players = [
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": "2022 K League 1 Winner",
-    "Image": "assets/players_image_updated/Park Yong-woo Al Ain.jpg"
+    "Image": "assets/players_image_updated/Park Yong-woo.png"
   },
   {
     "Profile": "Lee Hyun-joo",
@@ -1466,7 +1466,7 @@ const players = [
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingInKorea",
     "Performance": null,
-    "Image": "assets/players_image_updated/Park Min-gyu Hokkaido Consadole Sapporo.jpg"
+    "Image": "assets/players_image_updated/Park Min-gyu.png"
   },
   {
     "Profile": "Kim Jun-hong",
@@ -1485,7 +1485,7 @@ const players = [
     "Tier Mobility": "#FlatCareer(3)",
     "Player Status": "CurrentlyPlayingAbroad",
     "Performance": "2023 FIFA U-20 World Cup 4th place",
-    "Image": null
+    "Image": "assets/players_image_updated/Kim Jun-hong.png"
   },
   {
     "Profile": "Jung Ho-yeon",
