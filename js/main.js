@@ -1405,7 +1405,7 @@ function showHomeView() {
     imgWebp.onerror = function() {
       tryPng();
     };
-    imgWebp.src = 'assets/home.webp';
+    imgWebp.src = 'assets/Home.webp';
   }
 
   // main의 부모 요소에 home container 추가
@@ -2114,7 +2114,7 @@ function preloadHomeImage() {
   imgWebp.decoding = 'async';
   imgWebp.loading = 'eager';
   imgWebp.setAttribute('fetchpriority', 'high');
-  imgWebp.src = 'assets/home.webp';
+  imgWebp.src = 'assets/Home.webp';
   imgWebp.onload = () => { homeImagePreload = imgWebp; };
   imgWebp.onerror = () => { tryPngFallback(); };
 }
